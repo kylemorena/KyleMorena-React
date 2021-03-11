@@ -1,12 +1,13 @@
 import React from 'react'
-import NavBar from './components/NavBar';
+import NavBar from '../components/NavBar';
+import SearchBar from '../components/SearchBar';
 
 
 const Home = () => {
   return (
     <header>
       <NavBar />
-      <h1 className="">Home</h1>
+      <SearchBar />
     </header>
   )
 }
