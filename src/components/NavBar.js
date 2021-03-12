@@ -1,7 +1,8 @@
 import React from 'react';
-import {Navbar, Nav } from 'react-bootstrap'
+import {Navbar,Button } from 'react-bootstrap'
 import logo from '../assets/KM_logo.svg';
 import NavBarScss from './NavBar.module.scss';
+import SearchBar from './SearchBar';
 
 
 const NavBar = () => {
@@ -17,11 +18,11 @@ const NavBar = () => {
             alt="React Bootstrap logo"
           />
         </Navbar.Brand>
-        <Nav className="mr-auto">
-          <Nav.Link href="/">Home</Nav.Link>
-          <Nav.Link href="/detail">Detail</Nav.Link>
-          <Nav.Link href="/contacts">Contacts</Nav.Link>
-        </Nav>
+        <div className="d-flex flex-column">
+          <Button  className="mb-1">Accedi</Button>
+          <Button >Registrato</Button>
+        </div>
+        <SearchBar />
       </Navbar>
     </>
   )

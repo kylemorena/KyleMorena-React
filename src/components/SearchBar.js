@@ -1,7 +1,6 @@
 import React from 'react';
-import {Button, Form, FormControl } from 'react-bootstrap';
-import SearchBarSCSS from './SearchBar.module.scss';
-import CardBook from './cardBook';
+import {Form, FormControl } from 'react-bootstrap';
+// import SearchBarSCSS from './SearchBar.module.scss';
 import { useGlobalContext } from '../context.js';
 
 const SearchBar = () => {
@@ -24,12 +23,6 @@ const SearchBar = () => {
           ref={searchValue}
           onChange={handleChange}
         />
-        <Button 
-          className={`${SearchBarSCSS["btn"]}`}  
-          variant="outline-info"
-        >
-        Search
-        </Button>
       </Form>
     </>
   )

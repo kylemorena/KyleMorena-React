@@ -7,7 +7,7 @@ const AppContext = React.createContext()
 
 const AppProvider = ({ children }) => {
   const [loading, setLoading] = useState(true)
-  const [keyword, setKeyword] = useState('a')
+  const [keyword, setKeyword] = useState('')
   const [books, setBooks] = useState([])
 
   const fetchBooks = useCallback( async () => {
@@ -15,18 +15,21 @@ const AppProvider = ({ children }) => {
     try {
       const response = await axios.get(`https://www.googleapis.com/books/v1/volumes?q=${keyword}&key=${apiKey}&maxResults=5`)
       setBooks(response.data.items) 
-      console.log(books)
       setLoading(false)
     } catch (error) {
       console.log(error)
       setLoading(false)
     }
   },[keyword])
+
   useEffect(() => {
-    fetchBooks()
+    if(keyword!==''){
+      fetchBooks()
+    }
   }, [keyword,fetchBooks])
+  
   return (
-    <AppContext.Provider value={{ loading, books, keyword, setKeyword }}>
+    <AppContext.Provider value={{ loading, books, keyword, apiKey , setBooks ,setKeyword }}>
       {children}
     </AppContext.Provider>
   )
