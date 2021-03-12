@@ -5,7 +5,6 @@ import defaultImage from '../assets/KM_logo.svg';
 
 const CardBook = ({title, imageLinks}) => {
   const links = imageLinks && imageLinks.thumbnail;
-  console.log(links)
   return (
     <div className={CardScss['card']}>
       <img src={links || defaultImage} alt={title} />
@@ -18,6 +17,7 @@ CardBook.propTypes = {
   title: PropTypes.string.isRequired
 }
 CardBook.defaultProps={
+  links: ' ',
   title: ' '
 }
 
