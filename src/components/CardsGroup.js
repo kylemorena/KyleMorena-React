@@ -3,6 +3,7 @@ import axios from 'axios';
 import {v4 as uuid} from 'uuid';
 import {links} from '../dataFilter';
 import CardBook from './CardComponents/SingleCard';
+import CardsGroupScss from './CardsGroup.module.scss';
 
 const apiKey = process.env.REACT_APP_API_KEY;
 
@@ -32,20 +33,20 @@ const CardsGroup = () => {
 
   return (
     <div>
-      <h2>{freeEbooks.title}</h2>
-        <div key={2} className="row row-cols-4"> 
+      <h2 className={CardsGroupScss['title']}>{freeEbooks.title}</h2>
+        <div className={"row"}> 
           {freeEbooks.books.map((book)=>{
             return <CardBook key={book.id} {...book.volumeInfo} />
           })}
         </div>
-      <h2>{paidEbooks.title}</h2>
-        <div className="row row-cols-4"> 
+      <h2 className={CardsGroupScss['title']}>{paidEbooks.title}</h2>
+        <div className="row"> 
           {paidEbooks.books.map((book)=>{
             return <CardBook key={book.id} {...book.volumeInfo} />
           })}
         </div>
-      <h2 >Download</h2>
-        <div className="row row-cols-4"> 
+      <h2 className={CardsGroupScss['title']}>Download</h2>
+        <div className="row"> 
           {download.books.map((book)=>{
             return <CardBook key={book.id} {...book.volumeInfo} />
           })}

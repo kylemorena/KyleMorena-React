@@ -7,7 +7,7 @@ import SearchBar from './NavBarComponents/SearchBar';
 const NavBar = () => {
   return (
     <>
-      <Navbar className={NavBarScss['navbar']} bg="dark" variant="dark">
+      <Navbar className={`${NavBarScss['navbar']} bg-primary`} variant="dark">
         <Navbar.Brand href="/">
           <img
             src={logo}
@@ -18,8 +18,8 @@ const NavBar = () => {
           />
         </Navbar.Brand>
         <div className="d-flex flex-column">
-          <Button  className="mb-1">Accedi</Button>
-          <Button >Registrato</Button>
+          <Button  className="bg-secondary mb-1">Accedi</Button>
+          <Button className="bg-secondary">Registrato</Button>
         </div>
         <SearchBar />
       </Navbar>

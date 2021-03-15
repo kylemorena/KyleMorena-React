@@ -1,1 +1,9 @@
+$theme-colors:( 
+  "primary": #e8505b,
+  "secondary": #f9d5d7
+);
+@function theme-color($key: "primary") {
+  @return map-get($theme-colors, $key);
+}
 @import "~bootstrap/scss/bootstrap";
+
