@@ -1,6 +1,7 @@
 import axios from 'axios'
 import React, { useState, useContext, useEffect } from 'react'
 import { useCallback } from 'react'
+import {links} from './dataFilter';
 
 const apiKey = process.env.REACT_APP_API_KEY;
 const AppContext = React.createContext()
@@ -32,7 +33,7 @@ const AppProvider = ({ children }) => {
     }
   }, [keyword,fetchBooks])
   return (
-    <AppContext.Provider value={{ loading, books, keyword, setKeyword, setLoading }}>
+    <AppContext.Provider value={{ loading, books, keyword, links, setKeyword, setLoading }}>
       {children}
     </AppContext.Provider>
   )

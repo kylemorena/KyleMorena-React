@@ -3,15 +3,17 @@ import axios from 'axios';
 import {v4 as uuid} from 'uuid';
 import {links} from '../dataFilter';
 import CardBook from './CardComponents/SingleCard';
-
+import {useGlobalContext} from '../context';
 
 const apiKey = process.env.REACT_APP_API_KEY;
 
 const CardsGroup = () => {
+  const {links} = useGlobalContext()
+  const [dataFilter,setDataFilter] = useState(links)
   const [freeEbooks,setFreeEbooks] = useState({title:'', books:[]})
   const [paidEbooks,setPaidEbooks] = useState({title:'', books:[]})
   const [download,setDownload] = useState({title:'', books:[]})
-
+  console.log(dataFilter);
   const getBooks = () => {
     links.map(async (res) => {
       const response = await axios.get(`https://www.googleapis.com/books/v1/volumes?q=${res.code}&key=${apiKey}&maxResults=5`);
