@@ -1,10 +1,11 @@
 import React from 'react';
 import {Form, FormControl } from 'react-bootstrap';
-// import SearchBarSCSS from './SearchBar.module.scss';
 import { useGlobalContext } from '../context.js';
+import SearchBarSCSS from './SearchBar.module.scss';
+import SearchList from './SearchList';
 
 const SearchBar = () => {
-  const { setKeyword } = useGlobalContext();
+  const { books , setKeyword } = useGlobalContext();
   const searchValue = React.useRef(null)
   
   const handleChange= () => {
@@ -15,7 +16,7 @@ const SearchBar = () => {
   }
   return (
     <>
-      <Form className="d-flex p-3" onSubmit={handleSubmit}>
+      <Form className={`${SearchBarSCSS['SearchBar']} d-flex p-3`} onSubmit={handleSubmit}>
         <FormControl 
           type="text" 
           placeholder="Search" 
@@ -24,6 +25,11 @@ const SearchBar = () => {
           onChange={handleChange}
         />
       </Form>
+      <div>
+        {
+          '' || books.map((res)=> { return( <SearchList key={res.id} title={res.volumeInfo.title}/> )})
+        }
+      </div>
     </>
   )
 }
