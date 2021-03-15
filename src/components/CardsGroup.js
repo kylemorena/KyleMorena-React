@@ -1,16 +1,32 @@
 import React,{useEffect ,useState} from 'react';
-import CardBook from './CardBook';
-import {links} from '../dataFilter';
-
 import axios from 'axios';
+import {v4 as uuid} from 'uuid';
+import {links} from '../dataFilter';
+import CardBook from './CardComponents/SingleCard';
+
+
 const apiKey = process.env.REACT_APP_API_KEY;
 
 const CardsGroup = () => {
-  const [ebooks,setEbooks] = useState([])
+  const [freeEbooks,setFreeEbooks] = useState({title:'', books:[]})
+  const [paidEbooks,setPaidEbooks] = useState({title:'', books:[]})
+  const [download,setDownload] = useState({title:'', books:[]})
 
-  const getBooks = async (code) => {
-    const response = await axios.get(`https://www.googleapis.com/books/v1/volumes?q=${code}&key=${apiKey}&maxResults=5`);
-    return setEbooks(response.data.items);
+  const getBooks = () => {
+    links.map(async (res) => {
+      const response = await axios.get(`https://www.googleapis.com/books/v1/volumes?q=${res.code}&key=${apiKey}&maxResults=5`);
+      switch(res.filter){
+        case 'free-ebooks':
+          return setFreeEbooks({title:res.filter,books:response.data.items});
+        case 'paid-ebooks':
+          return setPaidEbooks({title:res.filter,books:response.data.items});
+        case 'download':
+          return setDownload({title:res.filter,books:response.data.items});
+        default:
+          throw new Error ('non esiste il filter di questo links')
+      }
+    });
+    return links;
   }
   useEffect(()=>{
     getBooks();
@@ -18,18 +34,24 @@ const CardsGroup = () => {
 
   return (
     <div>
-      {links.map(res=>{
-        return (
-          <div key={res.id}>
-            <h2>{res.filter}</h2>
-            <div className="row">
-              {ebooks.map((res)=>{
-                return <CardBook key={res.id} {...res.volumeInfo} />
-              })}
-            </div>
-          </div>
-        )
-      })}
+      <h2>{freeEbooks.title}</h2>
+        <div key={2} className="row row-cols-4"> 
+          {freeEbooks.books.map((book)=>{
+            return <CardBook key={book.id} {...book.volumeInfo} />
+          })}
+        </div>
+      <h2>{paidEbooks.title}</h2>
+        <div className="row row-cols-4"> 
+          {paidEbooks.books.map((book)=>{
+            return <CardBook key={book.id} {...book.volumeInfo} />
+          })}
+        </div>
+      <h2 >Download</h2>
+        <div className="row row-cols-4"> 
+          {download.books.map((book)=>{
+            return <CardBook key={book.id} {...book.volumeInfo} />
+          })}
+        </div>
     </div>
   )
 }

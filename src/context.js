@@ -14,6 +14,7 @@ const AppProvider = ({ children }) => {
     setLoading(true)
     try {
       const response = await axios.get(`https://www.googleapis.com/books/v1/volumes?q=${keyword}&key=${apiKey}&maxResults=5`);
+      console.log(response.data.items);
       setBooks(response.data.items);
       setLoading(false)
     } catch (error) {
@@ -26,9 +27,12 @@ const AppProvider = ({ children }) => {
     if(keyword!==''){
       fetchBooks()
     }
+    if(keyword===''){
+      setBooks([])
+    }
   }, [keyword,fetchBooks])
   return (
-    <AppContext.Provider value={{ loading, books, keyword, setKeyword }}>
+    <AppContext.Provider value={{ loading, books, keyword, setKeyword, setLoading }}>
       {children}
     </AppContext.Provider>
   )

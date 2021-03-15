@@ -2,8 +2,7 @@ import React from 'react';
 import {Navbar,Button } from 'react-bootstrap'
 import logo from '../assets/KM_logo.svg';
 import NavBarScss from './NavBar.module.scss';
-import SearchBar from './SearchBar';
-
+import SearchBar from './NavBarComponents/SearchBar';
 
 const NavBar = () => {
   return (

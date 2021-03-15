@@ -1,0 +1,13 @@
+.searchList{
+  border-bottom: 1px solid greenyellow;
+  h5{
+    width: 13rem;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+}
+.searchList:hover{
+  background-color: red;
+  cursor: pointer;
+}

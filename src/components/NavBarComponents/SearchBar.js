@@ -1,6 +1,6 @@
 import React from 'react';
 import {Form, FormControl } from 'react-bootstrap';
-import { useGlobalContext } from '../context.js';
+import { useGlobalContext } from '../../context';
 import SearchBarSCSS from './SearchBar.module.scss';
 import SearchList from './SearchList';
 
@@ -16,7 +16,7 @@ const SearchBar = () => {
   }
   return (
     <>
-      <Form className={`${SearchBarSCSS['SearchBar']} d-flex p-3`} onSubmit={handleSubmit}>
+      <Form className={`${SearchBarSCSS['SearchForm']} d-flex p-3`} onSubmit={handleSubmit}>
         <FormControl 
           type="text" 
           placeholder="Search" 
@@ -25,7 +25,7 @@ const SearchBar = () => {
           onChange={handleChange}
         />
       </Form>
-      <div>
+      <div className={`${SearchBarSCSS['listSearch']} position-relative rounded overflow-hidden p-2`}>
         {
           '' || books.map((res)=> { return( <SearchList key={res.id} title={res.volumeInfo.title}/> )})
         }

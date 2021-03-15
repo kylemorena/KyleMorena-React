@@ -1,12 +1,12 @@
 import React from 'react'
 import PropTypes from 'prop-types';
-import CardScss from './Card.module.scss';
-import defaultImage from '../assets/KM_logo.svg';
+import CardScss from './SingleCard.module.scss';
+import defaultImage from '../../assets/KM_logo.svg'
 
 const CardBook = ({title, imageLinks}) => {
   const links = imageLinks && imageLinks.thumbnail;
   return (
-    <div className={CardScss['card']}>
+    <div className={`${CardScss['card']} col m-2`}>
       <img src={links || defaultImage} alt={title} />
       {/* <h1>{title}</h1> */}
     </div>
