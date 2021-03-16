@@ -11,9 +11,12 @@ const CardsGroup = () => {
   const [freeEbooks,setFreeEbooks] = useState({title:'', books:[]})
   const [paidEbooks,setPaidEbooks] = useState({title:'', books:[]})
   const [download,setDownload] = useState({title:'', books:[]})
+  
+  //FILL every catgory with google books api 
   const getBooks = () => {
     links.map(async (res) => {
       const response = await axios.get(`https://www.googleapis.com/books/v1/volumes?q=${res.code}&key=${apiKey}&maxResults=5`);
+      //get api data depending on filter from links
       switch(res.filter){
         case 'free-ebooks':
           return setFreeEbooks({title:res.filter,books:response.data.items});
@@ -27,6 +30,7 @@ const CardsGroup = () => {
     });
     return links;
   }
+
   useEffect(()=>{
     getBooks();
   },[])

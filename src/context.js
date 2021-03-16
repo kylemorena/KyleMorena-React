@@ -11,11 +11,13 @@ const AppProvider = ({ children }) => {
   const [keyword, setKeyword] = useState('')
   const [books, setBooks] = useState([])
 
+  //this run only when keyword change
   const fetchBooks = useCallback( async () => {
     setLoading(true)
     try {
       const response = await axios.get(`https://www.googleapis.com/books/v1/volumes?q=${keyword}&key=${apiKey}&maxResults=5`);
       console.log(response.data.items);
+      //after getting data, add it on books variable and set loading to false.
       setBooks(response.data.items);
       setLoading(false)
     } catch (error) {
