@@ -1,0 +1,18 @@
+.searchList{
+  position:relative;
+  bottom:0;
+  z-index: 999;
+  div{
+    color: #000;
+    width: 13rem;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  div:hover{
+    color: #000;
+    border-radius: 0.3rem;
+    background-color: red;
+    cursor: pointer;
+  }
+}

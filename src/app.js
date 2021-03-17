@@ -2,8 +2,8 @@ import React from 'react';
 import {BrowserRouter as Router,Route,Switch} from 'react-router-dom';
 import './App.scss'
 import Home from './pages/Home';
-import Detail from './pages/Detail';
 import Error from './pages/Error';
+import Book from './pages/Book';
 
 const App = () =>{
   return(
@@ -12,8 +12,8 @@ const App = () =>{
           <Route exact path='/'>
             <Home />
           </Route>
-          <Route exact path='/detail'>
-            <Detail />
+          <Route path='/book/:id'>
+            <Book />
           </Route>
           <Route path='*'>
             <Error />

@@ -6,24 +6,22 @@ import SearchBar from './NavBarComponents/SearchBar';
 
 const NavBar = () => {
   return (
-    <>
-      <Navbar className={`${NavBarScss['navbar']} bg-primary`} variant="dark">
-        <Navbar.Brand href="/">
-          <img
-            src={logo}
-            width="30"
-            height="30"
-            className="d-inline-block align-top"
-            alt="React Bootstrap logo"
-          />
-        </Navbar.Brand>
-        <div className="d-flex flex-column">
-          <Button  className="bg-secondary mb-1">Accedi</Button>
-          <Button className="bg-secondary">Registrato</Button>
-        </div>
-        <SearchBar />
-      </Navbar>
-    </>
+    <Navbar className={`${NavBarScss['navbar']} bg-primary m-0 p-0`} variant="dark">
+      <Navbar.Brand href="/">
+        <img
+          src={logo}
+          width="30"
+          height="30"
+          className="d-inline-block align-top"
+          alt="React Bootstrap logo"
+        />
+      </Navbar.Brand>
+      <div className="d-flex flex-column">
+        <Button  className="bg-secondary mb-1">Accedi</Button>
+        <Button className="bg-secondary">Registrato</Button>
+      </div>
+      <SearchBar />
+    </Navbar>
   )
 }
 

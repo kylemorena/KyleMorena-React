@@ -1,9 +1,8 @@
 import React,{useEffect ,useState} from 'react';
 import axios from 'axios';
-import {v4 as uuid} from 'uuid';
 import {links} from '../dataFilter';
-import CardBook from './CardComponents/SingleCard';
-import CardsGroupScss from './CardsGroup.module.scss';
+import BookCard from './CardComponent/BookCard';
+import SectionsScss from './Sections.module.scss';
 
 const apiKey = process.env.REACT_APP_API_KEY;
 
@@ -37,24 +36,24 @@ const CardsGroup = () => {
 
   return (
     <div>
-      <h2 className={CardsGroupScss['title']}>{freeEbooks.title}</h2>
-        <div className={"row"}> 
+      <h2 className={SectionsScss['title']}>{freeEbooks.title}</h2>
+        <section className={"row m-0 p-0"}> 
           {freeEbooks.books.map((book)=>{
-            return <CardBook key={book.id} {...book.volumeInfo} />
+            return <BookCard key={book.id} {...book.volumeInfo} />
           })}
-        </div>
-      <h2 className={CardsGroupScss['title']}>{paidEbooks.title}</h2>
-        <div className="row"> 
+        </section>
+      <h2 className={SectionsScss['title']}>{paidEbooks.title}</h2>
+        <section className="row m-0 p-0"> 
           {paidEbooks.books.map((book)=>{
-            return <CardBook key={book.id} {...book.volumeInfo} />
+            return <BookCard key={book.id} {...book.volumeInfo} />
           })}
-        </div>
-      <h2 className={CardsGroupScss['title']}>Download</h2>
-        <div className="row"> 
+        </section>
+      <h2 className={SectionsScss['title']}>Download</h2>
+        <section className="row m-0 p-0"> 
           {download.books.map((book)=>{
-            return <CardBook key={book.id} {...book.volumeInfo} />
+            return <BookCard key={book.id} {...book.volumeInfo} />
           })}
-        </div>
+        </section>
     </div>
   )
 }
