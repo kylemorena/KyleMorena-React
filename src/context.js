@@ -14,13 +14,18 @@ const defaultState = {
 
 const AppProvider = ({ children }) => {
   const [data, dispatch] = useReducer(reducer, defaultState)
+  const [freeEbooks,setFreeEbooks] = useState({title:'', books:[]})
+  const [paidEbooks,setPaidEbooks] = useState({title:'', books:[]})
+  const [downloadEbooks,setDownloadEbooks] = useState({title:'', books:[]})
 
   return (
-    <AppContext.Provider value={{apiKey, data, dispatch, searching, resetData }}>
+    <AppContext.Provider 
+      value={{apiKey, data, freeEbooks, paidEbooks, downloadEbooks, dispatch, searching, resetData, setFreeEbooks,setPaidEbooks,setDownloadEbooks }}>
       {children}
     </AppContext.Provider>
   )
 }
+
 // make sure use
 export const useGlobalContext = () => {
   return useContext(AppContext)

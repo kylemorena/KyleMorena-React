@@ -4,6 +4,7 @@ import './App.scss'
 import Home from './pages/Home';
 import Error from './pages/Error';
 import Book from './pages/BookDetail';
+import Collection from './pages/BooksCollection';
 
 const App = () =>{
   return(
@@ -14,6 +15,9 @@ const App = () =>{
           </Route>
           <Route path='/book/:id'>
             <Book />
+          </Route>
+          <Route path='/books/collection/:id'>
+            <Collection />
           </Route>
           <Route path='*'>
             <Error />
