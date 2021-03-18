@@ -6,7 +6,7 @@ import Autocomplete from './Autocomplete';
 import axios from 'axios'
 
 const SearchBar = () => {
-  const { apiKey, autocomplete, dispatch, searching, noTyping } = useGlobalContext();
+  const { apiKey, data, dispatch, searching, resetData } = useGlobalContext();
   const searchBar = React.useRef(null)
 
   const handleChange = async (e) => {
@@ -15,7 +15,7 @@ const SearchBar = () => {
       dispatch(searching(response.data.items))
     }
     if(e.target.value===''){
-      dispatch(noTyping([]));
+      dispatch(resetData([]));
     }
   }
   const handleSubmit=(e)=>{
@@ -24,7 +24,7 @@ const SearchBar = () => {
 
   const handleClickOutside = (e) => {
     if(searchBar.current && !searchBar.current.contains(e.target) && e.target.className!=='bookBtn'){
-      dispatch(noTyping([]));
+      dispatch(resetData([]));
     }
   }
 
@@ -45,7 +45,7 @@ const SearchBar = () => {
           onChange={handleChange}
         />
       </Form>
-      {autocomplete.isOpen ? <Autocomplete books={autocomplete.books}/> : null}
+      {data.isOpen ? <Autocomplete books={data.books}/> : null}
     </>
   )
 }

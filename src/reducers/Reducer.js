@@ -5,13 +5,11 @@ const reducer = (state, action) => {
         books: action.payload,
         isOpen: true
       }
-    case 'NO-TYPING':
+    case 'RESETDATA':
       return state = {
         books: [],
         isOpen:false
       }
-    case 'DETAIL_BOOK':
-      return state = action.payload
     default:
       throw new Error ('nessun match')
   }

@@ -3,7 +3,7 @@ import {BrowserRouter as Router,Route,Switch} from 'react-router-dom';
 import './App.scss'
 import Home from './pages/Home';
 import Error from './pages/Error';
-import Book from './pages/Book';
+import Book from './pages/BookDetail';
 
 const App = () =>{
   return(

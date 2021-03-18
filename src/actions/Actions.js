@@ -4,9 +4,9 @@ export const searching = (books) => {
     payload: books
   }
 }
-export const noTyping = (books) => {
+export const resetData = (books) => {
   return {
-    type: 'NO-TYPING',
+    type: 'RESETDATA',
     payload: books
   }
 }

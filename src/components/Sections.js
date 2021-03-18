@@ -1,4 +1,5 @@
 import React,{useEffect ,useState} from 'react';
+import {Link} from 'react-router-dom';
 import axios from 'axios';
 import {links} from '../dataFilter';
 import BookCard from './CardComponent/BookCard';
@@ -36,22 +37,31 @@ const CardsGroup = () => {
 
   return (
     <div>
-      <h2 className={SectionsScss['title']}>{freeEbooks.title}</h2>
+      <h2 className={SectionsScss['title']}>{freeEbooks.title} </h2>
+        <Link to='/' className='ml-2'>
+          vedi tutti
+        </Link>
         <section className={"row m-0 p-0"}> 
           {freeEbooks.books.map((book)=>{
-            return <BookCard key={book.id} {...book.volumeInfo} />
+            return <BookCard key={book.id} {...book} />
           })}
         </section>
       <h2 className={SectionsScss['title']}>{paidEbooks.title}</h2>
+      <Link to='/' className='ml-2'>
+          vedi tutti
+        </Link>
         <section className="row m-0 p-0"> 
           {paidEbooks.books.map((book)=>{
-            return <BookCard key={book.id} {...book.volumeInfo} />
+            return <BookCard key={book.id} {...book} />
           })}
         </section>
       <h2 className={SectionsScss['title']}>Download</h2>
+      <Link to='/' className='ml-2'>
+          vedi tutti
+        </Link>
         <section className="row m-0 p-0"> 
           {download.books.map((book)=>{
-            return <BookCard key={book.id} {...book.volumeInfo} />
+            return <BookCard key={book.id} {...book} />
           })}
         </section>
     </div>
