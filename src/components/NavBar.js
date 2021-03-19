@@ -3,6 +3,7 @@ import {Navbar,Button } from 'react-bootstrap'
 import logo from '../assets/KM_logo.svg';
 import NavBarScss from './NavBar.module.scss';
 import SearchBar from './NavBarComponents/SearchBar';
+import firebase from '../base';
 
 const NavBar = () => {
   return (
@@ -18,7 +19,7 @@ const NavBar = () => {
       </Navbar.Brand>
       <div className="d-flex flex-column">
         <Button  className="bg-secondary mb-1">Accedi</Button>
-        <Button className="bg-secondary">Registrato</Button>
+        <Button className="bg-secondary" onClick={()=>firebase.auth().singOut()}>Registrati</Button>
       </div>
       <SearchBar />
     </Navbar>
