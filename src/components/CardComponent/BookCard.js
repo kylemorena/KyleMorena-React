@@ -8,7 +8,7 @@ const CardBook = ({volumeInfo,id}) => {
   const links = volumeInfo.imageLinks && volumeInfo.imageLinks.thumbnail;
   return (
     <Link to={`/book/${id}`}>
-      <div className={`${CardScss['card']} col m-2 bookBtn`}>
+      <div className={`${CardScss['card']} col m-2 p-0 bookBtn shadow`}>
         <img src={links || defaultImage} alt={volumeInfo.title} />
         {/* <h1>{title}</h1> */}
       </div>

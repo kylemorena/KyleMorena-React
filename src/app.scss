@@ -6,3 +6,7 @@ $theme-colors:(
   @return map-get($theme-colors, $key);
 }
 @import "~bootstrap/scss/bootstrap";
+
+*{
+  font-family: 'Merriweather';
+}

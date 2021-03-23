@@ -10,29 +10,35 @@ const CardsGroup = () => {
     <>
       {
         loading || 
-        <div className="mt-3 bg-secondary">
-          <h2 className={SectionsScss['title']}>{freeEbooks.title} </h2>
-          <Link to={`/books/collection/${freeEbooks.title}`} className='ml-2'>
-            vedi tutti
-          </Link>
+        <div className="my-3 mx-4">
+          <div className="d-flex justify-content-between">
+            <h2 className={SectionsScss['title']}>{freeEbooks.title}</h2>
+            <Link to={`/books/collection/${freeEbooks.title}`} className='ml-2'>
+              vedi tutti
+            </Link>
+          </div>
           <section className={"row m-0 p-0"}> 
             {freeEbooks.books.map((book)=>{
               return <BookCard key={book.id} {...book} />
             })}
           </section>
-          <h2 className={SectionsScss['title']}>{paidEbooks.title}</h2>
-          <Link to={`/books/collection/${paidEbooks.title}`} className='ml-2'>
-            vedi tutti
-          </Link>
+          <div className="d-flex justify-content-between">
+            <h2 className={SectionsScss['title']}>{paidEbooks.title}</h2>
+            <Link to={`/books/collection/${paidEbooks.title}`} className='ml-2'>
+              vedi tutti
+            </Link>
+          </div>
           <section className="row m-0 p-0"> 
             {paidEbooks.books.map((book)=>{
               return <BookCard key={book.id} {...book} />
             })}
           </section>
-          <h2 className={SectionsScss['title']}>{downloadEbooks.title}</h2>
-          <Link to={`/books/collection/${downloadEbooks.title}`} className='ml-2'>
-            vedi tutti
-          </Link>
+          <div className="d-flex justify-content-between">
+            <h2 className={SectionsScss['title']}>{downloadEbooks.title}</h2>
+            <Link to={`/books/collection/${downloadEbooks.title}`} className='ml-2'>
+              vedi tutti
+            </Link>
+          </div>
           <section className="row m-0 p-0"> 
             {downloadEbooks.books.map((book)=>{
               return <BookCard key={book.id} {...book} />

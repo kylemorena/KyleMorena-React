@@ -9,13 +9,7 @@ const NavBar = () => {
   return (
     <Navbar className={`${NavBarScss['navbar']} bg-primary m-0 p-0`} variant="dark">
       <Navbar.Brand href="/">
-        <img
-          src={logo}
-          width="30"
-          height="30"
-          className="d-inline-block align-top"
-          alt="React Bootstrap logo"
-        />
+        <h1>Bookssss</h1>
       </Navbar.Brand>
       <div className="d-flex flex-column">
         <Button  className="bg-secondary mb-1">Accedi</Button>

@@ -1,5 +1,8 @@
 .card{
   width: auto;
+  border-radius: 0.2rem 1rem 0.2rem 0.2rem;
+  overflow: hidden;
+  max-height: 160px;
   h1{
     font-size: small;
     word-wrap: break-word;
