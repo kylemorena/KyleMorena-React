@@ -1,9 +1,7 @@
 import React, { useState, useContext, useEffect, useReducer } from 'react'
-import axios from 'axios';
 import reducer from './reducers/Reducer';
 import {searching,resetData} from './actions/Actions';
-import {dataFilter} from './dataFilter';
-
+import {firebaseConfig,db} from './firebaseConfig';
 
 const apiKey = process.env.REACT_APP_API_KEY;
 const AppContext = React.createContext()
@@ -15,47 +13,114 @@ const defaultState = {
 
 const AppProvider = ({ children }) => {
   const [data, dispatch] = useReducer(reducer, defaultState)
-  const [freeEbooks,setFreeEbooks] = useState({title:'', books:[]})
-  const [paidEbooks,setPaidEbooks] = useState({title:'', books:[]})
-  const [downloadEbooks,setDownloadEbooks] = useState({title:'', books:[]});
-  const [loading,setLoading] = useState(true);
+  const [user,setUser] = useState('')  ;
+  const [email,setEmail] = useState('');
+  const [password,setPassword] = useState('');
+  const [emailError,setEmailError] = useState('');
+  const [passwordError,setPasswordError] = useState('');
+  const [hasAccount,setHasAccount] = useState(false);
+  const [whishList,setWhishList] = useState([]);
 
-  const getBooks = () => {
-    setLoading(true)
-    dataFilter.map(async (res) => {
-      try {
-        const response = await axios.get(`https://www.googleapis.com/books/v1/volumes?q=${res.filter}&key=${apiKey}&maxResults=3`);
-      //get api data depending on filter from links
-        switch(res.title){
-          case 'free-ebooks':
-            setFreeEbooks({title:res.title,books:response.data.items});
-            setLoading(false);
-            break;
-          case 'paid-ebooks':
-            setPaidEbooks({title:res.title,books:response.data.items});
-            setLoading(false);
-            break;
-          case 'download':
-            setDownloadEbooks({title:res.title,books:response.data.items});
-            setLoading(false);
-            break;
-          default:
-            throw new Error ('filter not found')
-        }
-      } catch (error) {
-        setLoading(true);
-        console.log(error)
-      }
-    });
+  const clearInputs = () => {
+    setEmail('');
+    setPassword('');
   }
 
+  const clearErrors = () => {
+    setEmailError('');
+    setPasswordError('');
+  }
+  
+  const handleLogin = () =>{
+    clearErrors();
+    firebaseConfig
+      .auth()
+      .signInWithEmailAndPassword(email,password)
+      .catch((err)=>{
+        switch(err.code){
+          case 'auth/invalid-email':
+          case 'auth/user-disabled':
+          case 'auth/user-not-found':
+            setEmailError(err.message);
+            break;
+          case 'auth/wrong-password':
+            setPasswordError(err.message);
+            break;
+          default:
+            throw new Error(err + 'not found');
+        }
+      })
+  };
+  
+  const handleSignup = () => {
+    clearErrors();
+    firebaseConfig
+      .auth()
+      .createUserWithEmailAndPassword(email,password).then((cred)=>{
+        if(cred){
+          db.collection('users').doc(cred.user.uid).set({
+            email:email
+          })
+        }
+      })
+      .catch((err)=>{
+        switch(err.code){
+          case 'auth/email-already-in-use':
+          case 'auth/invalid-email':
+            setEmailError(err.message);
+            break;
+          case 'auth/weak-password':
+            setPasswordError(err.message);
+            break;
+          default:
+            throw new Error(err + 'not found');
+        }
+      })
+  };
+  
+  const handleLogout = () => {
+    firebaseConfig.auth().signOut();
+  };
+
   useEffect(()=>{
-    getBooks();
-  },[setDownloadEbooks, setFreeEbooks, setPaidEbooks])
+    const authListener = () => {
+      firebaseConfig.auth().onAuthStateChanged((user)=>{
+        if(user){
+          clearInputs('');
+          setUser(user);
+        }else{
+          setUser('')
+        }
+      })
+    };
+    authListener();
+  },[])
 
   return (
     <AppContext.Provider 
-      value={{loading, apiKey, data, freeEbooks, paidEbooks, downloadEbooks, dispatch, searching, resetData, setFreeEbooks,setPaidEbooks,setDownloadEbooks }}>
+      value={{
+        apiKey,
+        data,
+        dispatch,
+        searching,
+        resetData,
+        user,
+        email,
+        setEmail,
+        password,
+        setPassword,
+        handleLogin,
+        handleSignup,
+        handleLogout,
+        emailError,
+        setEmailError,
+        passwordError,
+        setPasswordError,
+        hasAccount,
+        setHasAccount,
+        whishList,
+        setWhishList
+      }}>
       {children}
     </AppContext.Provider>
   )

@@ -26,7 +26,7 @@ const BooksCollection = () => {
   },[id,fetchBooks])
 
   return (
-    <div className={`${CollectionScss['collection']} bg-primary`}>
+    <div className={`${CollectionScss['collection']}`}>
       <Link to='/' className='ml-2'>
           back home
       </Link>
