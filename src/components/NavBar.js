@@ -3,7 +3,7 @@ import {Navbar,Form,Button } from 'react-bootstrap'
 import NavBarScss from './NavBar.module.scss';
 import SearchBar from './NavBarComponents/SearchBar';
 import {useGlobalContext} from '../context';
-import Whishlist from './NavBarComponents/Whishlist';
+import WhishButton from './NavBarComponents/WhishButton';
 
 const NavBar = () => {
   const {
@@ -32,7 +32,7 @@ const NavBar = () => {
             <SearchBar />
             <Button onClick={handleLogout}>Logout</Button>
             {/* TODO: da creare il component */}
-            <Whishlist />
+            <WhishButton />
           </>
         ) : (
           <Form>

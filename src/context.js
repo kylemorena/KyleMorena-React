@@ -2,6 +2,7 @@ import React, { useState, useContext, useEffect, useReducer,useCallback } from '
 import reducer from './reducers/Reducer';
 import {Searching,ResetData} from './actions/Actions';
 import {initApp,db,firebaseValue} from './firebaseConfig';
+import { ToggleButton } from 'react-bootstrap';
 
 
 const apiKey = process.env.REACT_APP_API_KEY;
@@ -21,6 +22,7 @@ const AppProvider = ({ children }) => {
   const [passwordError,setPasswordError] = useState('');
   const [hasAccount,setHasAccount] = useState(false);
   const [whishList,setWhishList] = useState([]);
+  const [prova,setProva] = useState(false);
 
   //#region HANDLE LOGIN/SIGNUP & LOGOUT
   const clearInputs = () => {
@@ -87,9 +89,22 @@ const AppProvider = ({ children }) => {
 
   //#region HANDLE WISHLIST
   const addWhish = (book) =>{
-    db.collection('users').doc(user.uid).update({
+    setProva(!prova);
+    const store = db.collection('users').doc(user.uid);
+    store.update({
       books: firebaseValue.arrayUnion(book)
-    });
+    }).then(()=>{
+      setWhishList([...whishList,book])
+    })
+  }
+  const removeWhish = (book) =>{
+    setProva(!prova);
+    const store = db.collection('users').doc(user.uid);
+    store.update({
+      books: firebaseValue.arrayRemove(book)
+    }).then(()=>{
+      setWhishList([...whishList])
+    })
   }
   //#endregion
 
@@ -98,7 +113,6 @@ const AppProvider = ({ children }) => {
       initApp.auth().onAuthStateChanged((user)=>{
         if(user){
           db.collection('users').doc(user.uid).get().then((res)=>{
-            console.log(res.data().books);
             setWhishList(res.data().books);
           })
           clearInputs('');
@@ -129,6 +143,8 @@ const AppProvider = ({ children }) => {
         handleLogout,
         whishList,
         addWhish,
+        removeWhish,
+        prova,
         emailError,
         setEmailError,
         passwordError,

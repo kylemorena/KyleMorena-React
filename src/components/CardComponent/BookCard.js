@@ -6,22 +6,35 @@ import defaultImage from '../../assets/KM_logo.svg'
 import {useGlobalContext} from '../../context';
 
 const CardBook = ({volumeInfo,id}) => {
-  const {addWhish} = useGlobalContext();
+  const {prova,addWhish,removeWhish} = useGlobalContext();
   const links = volumeInfo.imageLinks && volumeInfo.imageLinks.thumbnail;
 
   const handleClick = () => {
-    addWhish({id,volumeInfo});
+    console.log(prova)
+    if(prova===false){
+      addWhish({id,volumeInfo});
+    }else{
+      removeWhish({id,volumeInfo});
+    }
   }
 
   return (
     <div>
+      {/* FIXME: Devi fixare perchè cambia il toogle a tutti */}
       <Link to={`/book/${id}`}>
         <div className={`${CardScss['card']} col m-2 p-0 bookBtn shadow`}>
           <img src={links || defaultImage} alt={volumeInfo.title} />
           {/* <h1>{title}</h1> */}
         </div>
       </Link>
-      <button onClick={handleClick}>WhishList</button>
+      {
+        prova ? (
+          <button onClick={handleClick}>Remove</button>
+        ) : (
+          <button onClick={handleClick}>Add</button>
+        )
+      }
+      
     </div>
   )
 }

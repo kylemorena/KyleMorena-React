@@ -1,4 +1,5 @@
 import React from 'react'
+import {Link} from 'react-router-dom';
 import {useGlobalContext} from '../../context';
 
 const Whishlist = () => {
@@ -6,8 +7,9 @@ const Whishlist = () => {
 
   return (
     <div>
-      <button>My Whishlist</button>
-      <p>{whishList.length}</p>
+      <Link to={'/whishlist'} className="text-light">
+        My Whishlist <span className="text-success">{whishList.length}</span>
+      </Link>
     </div>
   )
 }

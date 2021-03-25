@@ -4,9 +4,8 @@ import './App.scss'
 import Home from './pages/Home';
 import Error from './pages/Error';
 import Book from './pages/BookDetail';
-import Login from './pages/Login';
-import Signup from './pages/Singup';
 import Collection from './pages/BooksCollection';
+import Whishlist from './pages/WhishList';
 
 const App = () =>{
   
@@ -16,11 +15,8 @@ const App = () =>{
             <Route exact path='/'>
               <Home />
             </Route>
-            <Route path='/Login'>
-              <Login />
-            </Route>
-            <Route path='/Signup'>
-              <Signup />
+            <Route path='/whishlist'>
+              <Whishlist />
             </Route>
             <Route path='/book/:id'>
               <Book />

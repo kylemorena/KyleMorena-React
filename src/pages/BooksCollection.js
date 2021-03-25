@@ -4,6 +4,8 @@ import axios from 'axios';
 import CollectionScss from './Collection.module.scss';
 import BookCard from '../components/CardComponent/BookCard';
 import { dataFilter } from '../dataFilter';
+import NavBar from '../components/NavBar';
+
 
 const BooksCollection = () => {
   const { id } = useParams();
@@ -26,19 +28,22 @@ const BooksCollection = () => {
   },[id,fetchBooks])
 
   return (
-    <div className={`${CollectionScss['collection']}`}>
-      <Link to='/' className='ml-2'>
-          back home
-      </Link>
-      <h2>{id}</h2>
-      <div className="row row-cols-4">
-        {loading ? '' : 
-          books.map((book)=>{
-            return <BookCard key={book.id} {...book} />
-          })
-        }
+    <main className="d-flex">
+      <NavBar />
+      <div className={`${CollectionScss['collection']}`}>
+        <Link to='/' className='ml-2'>
+            back home
+        </Link>
+        <h2>{id}</h2>
+        <div className="row row-cols-4">
+          {loading ? '' : 
+            books.map((book)=>{
+              return <BookCard key={book.id} {...book} />
+            })
+          }
+        </div>
       </div>
-    </div>
+    </main>
   )
 }
 
