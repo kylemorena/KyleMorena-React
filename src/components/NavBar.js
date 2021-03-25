@@ -20,6 +20,7 @@ const NavBar = () => {
     hasAccount,
     setHasAccount
   } = useGlobalContext();
+
   return (
     <Navbar className={`${NavBarScss['navbar']} bg-primary m-0 p-0`} variant="dark">
       <Navbar.Brand href="/">

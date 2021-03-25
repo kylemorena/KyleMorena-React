@@ -1,8 +1,8 @@
-import firebase from 'firebase/app';
+import firebaseApp from 'firebase/app';
 import 'firebase/auth';
 import 'firebase/firestore';
 
-const firebaseConfig = firebase.initializeApp({
+const initApp = firebaseApp.initializeApp({
   apiKey: process.env.REACT_APP_FIREBASE_KEY,
   authDomain: process.env.REACT_APP_FIREBASE_DOMAIN,
   projectId: process.env.REACT_APP_FIREBASE_PROJECT_ID,
@@ -12,6 +12,8 @@ const firebaseConfig = firebase.initializeApp({
   measurementId: process.env.REACT_APP_FIREBASE_MEASUREMENT_ID
 });
 
-const db = firebase.firestore();
+const db = firebaseApp.firestore();
 
-export {firebaseConfig,db};
+const firebaseValue = firebaseApp.firestore.FieldValue;
+
+export {initApp,db,firebaseValue};

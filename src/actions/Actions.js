@@ -1,10 +1,10 @@
-export const searching = (books) => {
+export const Searching = (books) => {
   return {
     type: 'SEARCHING',
     payload: books
   }
 }
-export const resetData = (books) => {
+export const ResetData = (books) => {
   return {
     type: 'RESETDATA',
     payload: books

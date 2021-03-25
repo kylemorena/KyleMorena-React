@@ -1,19 +1,20 @@
-import React, { useState, useContext, useEffect, useReducer } from 'react'
+import React, { useState, useContext, useEffect, useReducer,useCallback } from 'react'
 import reducer from './reducers/Reducer';
-import {searching,resetData} from './actions/Actions';
-import {firebaseConfig,db} from './firebaseConfig';
+import {Searching,ResetData} from './actions/Actions';
+import {initApp,db,firebaseValue} from './firebaseConfig';
+
 
 const apiKey = process.env.REACT_APP_API_KEY;
 const AppContext = React.createContext()
 
 const defaultState = {
   books:[],
-  isOpen:false
+  isModalOpen:false
 }
 
 const AppProvider = ({ children }) => {
   const [data, dispatch] = useReducer(reducer, defaultState)
-  const [user,setUser] = useState('')  ;
+  const [user,setUser] = useState({})  ;
   const [email,setEmail] = useState('');
   const [password,setPassword] = useState('');
   const [emailError,setEmailError] = useState('');
@@ -21,6 +22,7 @@ const AppProvider = ({ children }) => {
   const [hasAccount,setHasAccount] = useState(false);
   const [whishList,setWhishList] = useState([]);
 
+  //#region HANDLE LOGIN/SIGNUP & LOGOUT
   const clearInputs = () => {
     setEmail('');
     setPassword('');
@@ -33,7 +35,7 @@ const AppProvider = ({ children }) => {
   
   const handleLogin = () =>{
     clearErrors();
-    firebaseConfig
+    initApp
       .auth()
       .signInWithEmailAndPassword(email,password)
       .catch((err)=>{
@@ -54,7 +56,7 @@ const AppProvider = ({ children }) => {
   
   const handleSignup = () => {
     clearErrors();
-    firebaseConfig
+    initApp
       .auth()
       .createUserWithEmailAndPassword(email,password).then((cred)=>{
         if(cred){
@@ -79,13 +81,26 @@ const AppProvider = ({ children }) => {
   };
   
   const handleLogout = () => {
-    firebaseConfig.auth().signOut();
+    initApp.auth().signOut();
   };
+  //#endregion
+
+  //#region HANDLE WISHLIST
+  const addWhish = (book) =>{
+    db.collection('users').doc(user.uid).update({
+      books: firebaseValue.arrayUnion(book)
+    });
+  }
+  //#endregion
 
   useEffect(()=>{
     const authListener = () => {
-      firebaseConfig.auth().onAuthStateChanged((user)=>{
+      initApp.auth().onAuthStateChanged((user)=>{
         if(user){
+          db.collection('users').doc(user.uid).get().then((res)=>{
+            console.log(res.data().books);
+            setWhishList(res.data().books);
+          })
           clearInputs('');
           setUser(user);
         }else{
@@ -102,8 +117,8 @@ const AppProvider = ({ children }) => {
         apiKey,
         data,
         dispatch,
-        searching,
-        resetData,
+        Searching,
+        ResetData,
         user,
         email,
         setEmail,
@@ -112,14 +127,14 @@ const AppProvider = ({ children }) => {
         handleLogin,
         handleSignup,
         handleLogout,
+        whishList,
+        addWhish,
         emailError,
         setEmailError,
         passwordError,
         setPasswordError,
         hasAccount,
-        setHasAccount,
-        whishList,
-        setWhishList
+        setHasAccount
       }}>
       {children}
     </AppContext.Provider>

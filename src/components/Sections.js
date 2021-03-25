@@ -1,11 +1,10 @@
 import React,{useState,useEffect,useCallback} from 'react';
 import {Link} from 'react-router-dom';
 import axios from 'axios';
-import BookCard from './CardComponent/BookCard';
 import SectionsScss from './Sections.module.scss';
 import {useGlobalContext} from '../context';
 import {dataFilter} from '../dataFilter';
-
+import BookCard from './CardComponent/BookCard';
 
 const CardsGroup = () => {
   const {apiKey} = useGlobalContext();
@@ -46,6 +45,7 @@ const CardsGroup = () => {
   useEffect(()=>{
     getBooks();
   },[getBooks])
+
   return (
     <>
       {

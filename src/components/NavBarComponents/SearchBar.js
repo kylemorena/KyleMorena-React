@@ -6,16 +6,16 @@ import Autocomplete from './Autocomplete';
 import axios from 'axios'
 
 const SearchBar = () => {
-  const { apiKey, data, dispatch, searching, resetData } = useGlobalContext();
+  const { apiKey, data, dispatch, Searching, ResetData } = useGlobalContext();
   const searchBar = React.useRef(null)
 
   const handleChange = async (e) => {
     if(e.target.value!==''){
       const response = await axios.get(`https://www.googleapis.com/books/v1/volumes?q=${e.target.value}&key=${apiKey}&maxResults=5`);
-      dispatch(searching(response.data.items))
+      dispatch(Searching(response.data.items))
     }
     if(e.target.value===''){
-      dispatch(resetData([]));
+      dispatch(ResetData([]));
     }
   }
   const handleSubmit=(e)=>{
@@ -24,7 +24,7 @@ const SearchBar = () => {
 
   const handleClickOutside = (e) => {
     if(searchBar.current && !searchBar.current.contains(e.target) && e.target.className!=='bookBtn'){
-      dispatch(resetData([]));
+      dispatch(ResetData([]));
     }
   }
 

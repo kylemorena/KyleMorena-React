@@ -4,21 +4,25 @@ import {Link} from 'react-router-dom';
 import {useGlobalContext} from '../../context';
 
 const Autocomplete = ({books}) => {
-  const {dispatch,resetData} = useGlobalContext();
+  const {dispatch,ResetData} = useGlobalContext();
 
   function handleClick(){
-    dispatch(resetData([]))
+    dispatch(ResetData([]))
   }
 
   return (
     <div className={`${AutocompleteScss['searchList']} p-1 rounded bg-light`}>
-      {books.map(book=>{
-        return(
-          <Link to={`/book/${book.id}`} key={book.id} onClick={handleClick}>
-            <div className="bookBtn">{book.volumeInfo.title}</div>
-          </Link>
-        )
-      })}
+        {
+          books !==undefined ? (
+            books.map(book=>{
+              return(
+                <Link to={`/book/${book.id}`} key={book.id} onClick={handleClick}>
+                  <div className="bookBtn">{book.volumeInfo.title}</div>
+                </Link>
+              )
+            })
+          ) : 'Nessun Risultato'
+        }
     </div>
   )
 }
