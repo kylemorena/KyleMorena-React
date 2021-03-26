@@ -8,11 +8,10 @@ const Whishlist = () => {
   const {whishList} = useGlobalContext()
 
   return (
-    <div className={`${WishButtonScss['btn']} mt-3`}>
-      <Link to={'/whishlist'} className="text-light">
-        <FaBookmark /> PREFERITI <span className="text-light p-1 rounded-lg bg-warning">{whishList.length}</span>
-      </Link>
-    </div>
+    <Link to={'/whishlist'} className={`${WishButtonScss['btn']} p-0 mt-4 color`}>
+      <FaBookmark/>&nbsp; PREFERITI &nbsp;
+      <span className="px-2 rounded-circle">{whishList.length}</span>
+    </Link>
   )
 }
 

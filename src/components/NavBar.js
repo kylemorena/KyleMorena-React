@@ -1,5 +1,5 @@
 import React from 'react';
-import {Navbar,Form,Button} from 'react-bootstrap'
+import {Navbar,Container,Form,Button} from 'react-bootstrap'
 import NavBarScss from './NavBar.module.scss';
 import SearchBar from './NavBarComponents/SearchBar';
 import {useGlobalContext} from '../common/context';
@@ -24,19 +24,19 @@ const NavBar = () => {
   } = useGlobalContext();
 
   return (
-    <Navbar className={`${NavBarScss['navbar']} bg-primary m-0 p-0`} variant="dark">
-      <Navbar.Brand href="/">
-        <h1>Bookssss</h1>
+    <Navbar className={`${NavBarScss['navbar']} bg-primary m-0 p-0 px-2`} variant="dark">
+      <Navbar.Brand href="/" className="m-0 my-3 p-0">
+        <h1 className="display-4">Bookssss</h1>
       </Navbar.Brand>
       {
         user ? (
-          <div className="d-flex flex-fill flex-column justify-content-between align-items-center">
-            <div className="">
+          <Container className="d-flex flex-fill flex-column justify-content-between align-items-start">
+            <div>
               <SearchBar />
               <WhishButton />
             </div>
             <Button className="text-primary" onClick={handleLogout}><FaSignOutAlt /> ESCI</Button>
-          </div>
+          </Container>
         ) : (
           <Form>
             <Form.Group controlId="formBasicEmail">

@@ -1,28 +1,9 @@
 .navbar {
   display: flex;
   justify-content: space-between;
+  align-items: flex-start;
   flex-direction: column;
   min-width: 20%;
   max-width: 20%;
   min-height: 100vh;
-  text-align: center;
-  a > h1{
-    font-family: 'Merriweather';
-  }
-  button{
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    width: 70%;
-    font-size: 16px;
-    font-weight: bold;
-    font-stretch: normal;
-    font-style: normal;
-    line-height: 2;
-    letter-spacing: normal;
-    svg{
-      height: 24px;
-      width: 24px;
-    }
-  }
 }
