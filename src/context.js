@@ -1,8 +1,7 @@
-import React, { useState, useContext, useEffect, useReducer,useCallback } from 'react'
+import React, { useState, useContext, useEffect, useReducer } from 'react'
 import reducer from './reducers/Reducer';
 import {Searching,ResetData} from './actions/Actions';
 import {initApp,db,firebaseValue} from './firebaseConfig';
-import { ToggleButton } from 'react-bootstrap';
 
 
 const apiKey = process.env.REACT_APP_API_KEY;
@@ -22,7 +21,6 @@ const AppProvider = ({ children }) => {
   const [passwordError,setPasswordError] = useState('');
   const [hasAccount,setHasAccount] = useState(false);
   const [whishList,setWhishList] = useState([]);
-  const [prova,setProva] = useState(false);
 
   //#region HANDLE LOGIN/SIGNUP & LOGOUT
   const clearInputs = () => {
@@ -89,7 +87,6 @@ const AppProvider = ({ children }) => {
 
   //#region HANDLE WISHLIST
   const addWhish = (book) =>{
-    setProva(!prova);
     const store = db.collection('users').doc(user.uid);
     store.update({
       books: firebaseValue.arrayUnion(book)
@@ -98,12 +95,13 @@ const AppProvider = ({ children }) => {
     })
   }
   const removeWhish = (book) =>{
-    setProva(!prova);
     const store = db.collection('users').doc(user.uid);
     store.update({
       books: firebaseValue.arrayRemove(book)
     }).then(()=>{
-      setWhishList([...whishList])
+      store.get().then(res=>{
+        setWhishList(res.data().books)
+      })
     })
   }
   //#endregion
@@ -144,7 +142,6 @@ const AppProvider = ({ children }) => {
         whishList,
         addWhish,
         removeWhish,
-        prova,
         emailError,
         setEmailError,
         passwordError,

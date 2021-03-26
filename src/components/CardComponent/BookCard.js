@@ -1,40 +1,50 @@
-import React from 'react'
+import React,{useEffect,useState,useCallback} from 'react'
 import {Link} from 'react-router-dom';
 import PropTypes from 'prop-types';
 import CardScss from './SingleCard.module.scss';
 import defaultImage from '../../assets/KM_logo.svg'
 import {useGlobalContext} from '../../context';
+import {db} from '../../firebaseConfig';
 
 const CardBook = ({volumeInfo,id}) => {
-  const {prova,addWhish,removeWhish} = useGlobalContext();
+  const {addWhish,removeWhish,whishList} = useGlobalContext();
+  const [toggle,setToggle] = useState(false)
   const links = volumeInfo.imageLinks && volumeInfo.imageLinks.thumbnail;
 
-  const handleClick = () => {
-    console.log(prova)
-    if(prova===false){
-      addWhish({id,volumeInfo});
-    }else{
-      removeWhish({id,volumeInfo});
-    }
+  const AddClick = () => {
+    addWhish({id,volumeInfo,addItem:!toggle});
+  }
+  const RemoveClick = () => {
+    removeWhish({id,volumeInfo,addItem:toggle});
+    setToggle(!toggle);
   }
 
+  useEffect(()=>{
+    whishList.forEach(res=>{
+      if(res.id===id){
+        setToggle(res.addItem);
+      }
+    })
+  },[id,whishList])
+
   return (
-    <div>
+    <div className="col m-2 p-0 bookBtn">
+    <>
       {/* FIXME: Devi fixare perchè cambia il toogle a tutti */}
       <Link to={`/book/${id}`}>
-        <div className={`${CardScss['card']} col m-2 p-0 bookBtn shadow`}>
+        <div className={`${CardScss['card']} shadow`}>
           <img src={links || defaultImage} alt={volumeInfo.title} />
           {/* <h1>{title}</h1> */}
         </div>
       </Link>
       {
-        prova ? (
-          <button onClick={handleClick}>Remove</button>
-        ) : (
-          <button onClick={handleClick}>Add</button>
+        toggle ? (
+          <button onClick={RemoveClick}>Remove</button>
+        ) : ( 
+          <button onClick={AddClick}>Add</button>
         )
       }
-      
+    </>
     </div>
   )
 }
