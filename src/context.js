@@ -61,6 +61,7 @@ const AppProvider = ({ children }) => {
       .createUserWithEmailAndPassword(email,password).then((cred)=>{
         if(cred){
           db.collection('users').doc(cred.user.uid).set({
+            books:[],
             email:email
           })
         }
