@@ -1,0 +1,11 @@
+nav{
+  button.btn{
+    background-color: $gray-100;
+  }
+  button.btn:hover{
+    background-color: theme-color("secondary");
+  }
+}
+main{
+  background-color: $gray-100;
+}

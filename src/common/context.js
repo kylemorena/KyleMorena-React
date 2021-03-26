@@ -1,8 +1,7 @@
 import React, { useState, useContext, useEffect, useReducer } from 'react'
-import reducer from './reducers/Reducer';
-import {Searching,ResetData} from './actions/Actions';
+import Reducer from '../reducers';
+import {Searching,ResetData} from '../actions';
 import {initApp,db,firebaseValue} from './firebaseConfig';
-
 
 const apiKey = process.env.REACT_APP_API_KEY;
 const AppContext = React.createContext()
@@ -13,7 +12,7 @@ const defaultState = {
 }
 
 const AppProvider = ({ children }) => {
-  const [data, dispatch] = useReducer(reducer, defaultState)
+  const [data, dispatch] = useReducer(Reducer, defaultState)
   const [user,setUser] = useState({})  ;
   const [email,setEmail] = useState('');
   const [password,setPassword] = useState('');

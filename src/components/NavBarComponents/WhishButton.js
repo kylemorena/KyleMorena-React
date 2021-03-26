@@ -1,14 +1,16 @@
 import React from 'react'
 import {Link} from 'react-router-dom';
-import {useGlobalContext} from '../../context';
+import {useGlobalContext} from '../../common/context';
+import WishButtonScss from './WhishButton.module.scss';
+import { FaBookmark } from "react-icons/fa";
 
 const Whishlist = () => {
   const {whishList} = useGlobalContext()
 
   return (
-    <div>
+    <div className={`${WishButtonScss['btn']} mt-3`}>
       <Link to={'/whishlist'} className="text-light">
-        My Whishlist <span className="text-success">{whishList.length}</span>
+        <FaBookmark /> PREFERITI <span className="text-light p-1 rounded-lg bg-warning">{whishList.length}</span>
       </Link>
     </div>
   )

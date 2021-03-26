@@ -1,3 +1,26 @@
 .SearchForm{
-  background-color: transparent;
+  background-color: white;
+  display: inline-flex;
+  align-items: center;
+  height: 48px;
+  width: 80%;
+  padding: 5px;
+  margin: 3px;
+  border-radius: 0.5rem;
+  svg{
+    height: 90%;
+    width: auto;
+    padding: 5px;
+  }
+  .Input{
+    font-size: large;
+    height: 100%;
+    padding: 0 0 0 5px;
+    border: none;
+  }
+  .Input:focus{
+    border: none;
+    outline: 0 none;
+    box-shadow: none;
+  }  
 }

@@ -7,6 +7,9 @@ $theme-colors:(
 }
 @import "~bootstrap/scss/bootstrap";
 
-*{
-  font-family: 'Merriweather';
-}
+//Custom scss
+@import "customApp";
+
+
+
+

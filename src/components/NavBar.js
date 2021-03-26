@@ -1,9 +1,11 @@
 import React from 'react';
-import {Navbar,Form,Button } from 'react-bootstrap'
+import {Navbar,Form,Button} from 'react-bootstrap'
 import NavBarScss from './NavBar.module.scss';
 import SearchBar from './NavBarComponents/SearchBar';
-import {useGlobalContext} from '../context';
+import {useGlobalContext} from '../common/context';
 import WhishButton from './NavBarComponents/WhishButton';
+import { FaSignOutAlt } from "react-icons/fa";
+import Copyright from './NavBarComponents/Copyright';
 
 const NavBar = () => {
   const {
@@ -28,12 +30,13 @@ const NavBar = () => {
       </Navbar.Brand>
       {
         user ? (
-          <>
-            <SearchBar />
-            <Button onClick={handleLogout}>Logout</Button>
-            {/* TODO: da creare il component */}
-            <WhishButton />
-          </>
+          <div className="d-flex flex-fill flex-column justify-content-between align-items-center">
+            <div className="">
+              <SearchBar />
+              <WhishButton />
+            </div>
+            <Button className="text-primary" onClick={handleLogout}><FaSignOutAlt /> ESCI</Button>
+          </div>
         ) : (
           <Form>
             <Form.Group controlId="formBasicEmail">
@@ -85,6 +88,7 @@ const NavBar = () => {
           </Form>
         )
       }
+      <Copyright />
     </Navbar>
   )
 }

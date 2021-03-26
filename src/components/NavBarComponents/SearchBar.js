@@ -1,9 +1,11 @@
 import React,{useEffect} from 'react';
 import {Form, FormControl } from 'react-bootstrap';
-import { useGlobalContext } from '../../context';
+import { useGlobalContext } from '../../common/context';
 import SearchBarSCSS from './SearchBar.module.scss';
 import Autocomplete from './Autocomplete';
-import axios from 'axios'
+import axios from 'axios';
+import { FaSistrix } from "react-icons/fa";
+
 
 const SearchBar = () => {
   const { apiKey, data, dispatch, Searching, ResetData } = useGlobalContext();
@@ -37,11 +39,12 @@ const SearchBar = () => {
 
   return (
     <>
-      <Form className={`${SearchBarSCSS['SearchForm']} d-flex p-1`} onSubmit={handleSubmit} ref={searchBar}>
+      <Form className={`${SearchBarSCSS['SearchForm']}`} onSubmit={handleSubmit} ref={searchBar}>
+        <FaSistrix className="text-primary"/>
         <FormControl 
           type="text" 
-          placeholder="Search" 
-          className="m-0" 
+          className={`${SearchBarSCSS['Input']}`}
+          placeholder="Search..."
           onChange={handleChange}
         />
       </Form>

@@ -3,7 +3,7 @@ import {Link} from 'react-router-dom';
 import PropTypes from 'prop-types';
 import CardScss from './SingleCard.module.scss';
 import defaultImage from '../../assets/KM_logo.svg'
-import {useGlobalContext} from '../../context';
+import {useGlobalContext} from '../../common/context';
 
 const CardBook = ({volumeInfo,id}) => {
   const {addWhish,removeWhish,whishList} = useGlobalContext();

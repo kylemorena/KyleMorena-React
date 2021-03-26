@@ -7,6 +7,7 @@ import Book from './pages/BookDetail';
 import Collection from './pages/BooksCollection';
 import Whishlist from './pages/WhishList';
 
+
 const App = () =>{
   
   return(

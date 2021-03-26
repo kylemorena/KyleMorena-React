@@ -1,7 +1,7 @@
 import React from 'react'
 import AutocompleteScss from './Autocomplete.module.scss';
 import {Link} from 'react-router-dom';
-import {useGlobalContext} from '../../context';
+import {useGlobalContext} from '../../common/context';
 
 const Autocomplete = ({books}) => {
   const {dispatch,ResetData} = useGlobalContext();

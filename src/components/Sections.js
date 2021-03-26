@@ -2,9 +2,9 @@ import React,{useState,useEffect,useCallback} from 'react';
 import {Link} from 'react-router-dom';
 import axios from 'axios';
 import SectionsScss from './Sections.module.scss';
-import {useGlobalContext} from '../context';
+import {useGlobalContext} from '../common/context';
 import Loading from './Loading';
-import {dataFilter} from '../dataFilter';
+import {dataFilter} from '../common/dataFilter';
 import BookCard from './CardComponent/BookCard';
 
 const CardsGroup = () => {

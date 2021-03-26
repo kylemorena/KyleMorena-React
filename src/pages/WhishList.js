@@ -1,7 +1,7 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
 import NavBar from '../components/NavBar';
-import {useGlobalContext} from '../context';
+import {useGlobalContext} from '../common/context';
 import BookCard from '../components/CardComponent/BookCard';
 
 const WhishList = () => {
