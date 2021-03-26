@@ -3,6 +3,7 @@ import {Link} from 'react-router-dom';
 import axios from 'axios';
 import SectionsScss from './Sections.module.scss';
 import {useGlobalContext} from '../context';
+import Loading from './Loading';
 import {dataFilter} from '../dataFilter';
 import BookCard from './CardComponent/BookCard';
 
@@ -49,8 +50,10 @@ const CardsGroup = () => {
   return (
     <>
       {
-        loading || 
-        <div className="my-3 mx-4">
+        loading ?  (
+          <Loading />
+        ) : (
+          <div className="my-3 mx-4">
           <div className="d-flex justify-content-between">
             <h2 className={SectionsScss['title']}>{freeEbooks.title}</h2>
             <Link to={`/books/collection/${freeEbooks.title}`} className='ml-2'>
@@ -85,6 +88,7 @@ const CardsGroup = () => {
             })}
           </section>
         </div>
+        )
       }
     </>
   )

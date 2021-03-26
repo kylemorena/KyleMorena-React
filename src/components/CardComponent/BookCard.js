@@ -1,20 +1,19 @@
-import React,{useEffect,useState,useCallback} from 'react'
+import React,{useEffect,useState} from 'react'
 import {Link} from 'react-router-dom';
 import PropTypes from 'prop-types';
 import CardScss from './SingleCard.module.scss';
 import defaultImage from '../../assets/KM_logo.svg'
 import {useGlobalContext} from '../../context';
-import {db} from '../../firebaseConfig';
 
 const CardBook = ({volumeInfo,id}) => {
   const {addWhish,removeWhish,whishList} = useGlobalContext();
   const [toggle,setToggle] = useState(false)
   const links = volumeInfo.imageLinks && volumeInfo.imageLinks.thumbnail;
 
-  const AddClick = () => {
+  const AddItem = () => {
     addWhish({id,volumeInfo,addItem:!toggle});
   }
-  const RemoveClick = () => {
+  const RemoveItem = () => {
     removeWhish({id,volumeInfo,addItem:toggle});
     setToggle(!toggle);
   }
@@ -30,7 +29,6 @@ const CardBook = ({volumeInfo,id}) => {
   return (
     <div className="col m-2 p-0 bookBtn">
     <>
-      {/* FIXME: Devi fixare perchè cambia il toogle a tutti */}
       <Link to={`/book/${id}`}>
         <div className={`${CardScss['card']} shadow`}>
           <img src={links || defaultImage} alt={volumeInfo.title} />
@@ -39,9 +37,9 @@ const CardBook = ({volumeInfo,id}) => {
       </Link>
       {
         toggle ? (
-          <button onClick={RemoveClick}>Remove</button>
+          <button onClick={RemoveItem}>Remove</button>
         ) : ( 
-          <button onClick={AddClick}>Add</button>
+          <button onClick={AddItem}>Add</button>
         )
       }
     </>
