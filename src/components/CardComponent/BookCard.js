@@ -6,16 +6,24 @@ import defaultImage from '../../assets/KM_logo.svg'
 import {useGlobalContext} from '../../common/context';
 
 const CardBook = ({volumeInfo,id}) => {
-  const {addWhish,removeWhish,whishList} = useGlobalContext();
+  const {user,addWhish,removeWhish,whishList,setShowToast} = useGlobalContext();
   const [toggle,setToggle] = useState(false)
   const links = volumeInfo.imageLinks && volumeInfo.imageLinks.thumbnail;
 
   const AddItem = () => {
-    addWhish({id,volumeInfo,addItem:!toggle});
+    if(user){
+      addWhish({id,volumeInfo,addItem:!toggle});
+    }else{
+      setShowToast(true);
+    };
   }
   const RemoveItem = () => {
-    removeWhish({id,volumeInfo,addItem:toggle});
-    setToggle(!toggle);
+    if(user){
+      removeWhish({id,volumeInfo,addItem:toggle});
+      setToggle(!toggle);
+    }else{
+      setShowToast(true);
+    };
   }
 
   useEffect(()=>{

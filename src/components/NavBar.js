@@ -1,27 +1,15 @@
 import React from 'react';
-import {Navbar,Container,Form,Button} from 'react-bootstrap'
+import {Navbar,Container,Button} from 'react-bootstrap'
 import NavBarScss from './NavBar.module.scss';
 import SearchBar from './NavBarComponents/SearchBar';
 import {useGlobalContext} from '../common/context';
 import WhishButton from './NavBarComponents/WhishButton';
 import { FaSignOutAlt } from "react-icons/fa";
 import Copyright from './NavBarComponents/Copyright';
+import FormLogRegister from './NavBarComponents/FormLogRegister';
 
 const NavBar = () => {
-  const {
-    user,
-    email,
-    setEmail,
-    password,
-    setPassword,
-    handleLogin,
-    handleSignup,
-    handleLogout,
-    emailError,
-    passwordError,
-    hasAccount,
-    setHasAccount
-  } = useGlobalContext();
+  const { user, handleLogout, } = useGlobalContext();
 
   return (
     <Navbar className={`${NavBarScss['navbar']} bg-primary m-0 p-0 px-2`} variant="dark">
@@ -38,54 +26,7 @@ const NavBar = () => {
             <Button className="text-primary" onClick={handleLogout}><FaSignOutAlt /> ESCI</Button>
           </Container>
         ) : (
-          <Form>
-            <Form.Group controlId="formBasicEmail">
-              <Form.Label>Email address</Form.Label>
-              <Form.Control 
-                type="email" 
-                placeholder="Enter email" 
-                autoFocus 
-                required 
-                value={email} 
-                onChange={(e)=>setEmail(e.target.value)} 
-              />
-              <Form.Text className="text-warning">
-                {emailError}
-              </Form.Text>
-            </Form.Group>
-            <Form.Group controlId="formBasicPassword">
-              <Form.Label>Password</Form.Label>
-              <Form.Control 
-                type="password" 
-                placeholder="Password" 
-                required
-                value={password}
-                onChange={(e)=>setPassword(e.target.value)}
-              />
-              <Form.Text className="text-warning">
-                {passwordError}
-              </Form.Text>
-            </Form.Group>
-            <div className="btnContainer">
-              {
-                hasAccount ? (
-                  <>
-                    <Button onClick={handleLogin}>Sign in</Button>
-                    <p>Don't have an account?
-                      <span onClick={()=>setHasAccount(!hasAccount)}>Sing up</span>
-                    </p>
-                  </>
-                ) : (
-                  <>
-                    <Button onClick={handleSignup}>Sign up</Button>
-                    <p>Have an account?
-                      <span onClick={()=>setHasAccount(!hasAccount)}>Sing in</span>
-                    </p>
-                  </>
-                )
-              }
-            </div>
-          </Form>
+          <FormLogRegister/>
         )
       }
       <Copyright />

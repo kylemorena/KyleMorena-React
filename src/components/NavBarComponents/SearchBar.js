@@ -1,4 +1,4 @@
-import React,{useEffect} from 'react';
+import React,{useEffect,useRef} from 'react';
 import {Form, FormControl } from 'react-bootstrap';
 import { useGlobalContext } from '../../common/context';
 import SearchBarSCSS from './SearchBar.module.scss';
@@ -9,7 +9,7 @@ import { FaSistrix } from "react-icons/fa";
 
 const SearchBar = () => {
   const { apiKey, data, dispatch, Searching, ResetData } = useGlobalContext();
-  const searchBar = React.useRef(null)
+  const searchBar = useRef(null)
 
   const handleChange = async (e) => {
     if(e.target.value!==''){

@@ -20,6 +20,8 @@ const AppProvider = ({ children }) => {
   const [passwordError,setPasswordError] = useState('');
   const [hasAccount,setHasAccount] = useState(false);
   const [whishList,setWhishList] = useState([]);
+  const [inputEmail,setInputEmail] = useState({});
+  const [showToast, setShowToast] = useState(true);
 
   //#region HANDLE LOGIN/SIGNUP & LOGOUT
   const clearInputs = () => {
@@ -147,7 +149,11 @@ const AppProvider = ({ children }) => {
         passwordError,
         setPasswordError,
         hasAccount,
-        setHasAccount
+        setHasAccount,
+        inputEmail,
+        setInputEmail,
+        showToast,
+        setShowToast
       }}>
       {children}
     </AppContext.Provider>
