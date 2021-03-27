@@ -50,7 +50,7 @@ const ModalComponent = () => {
           delay={3000} 
           ref={toast}
           autohide
-          className={`${ToastScss['Toast']} toast p-2 m-0 bg-danger`}
+          className={`${ToastScss['Toast']} p-2 m-0 bg-danger`}
         >
           <div className="d-flex justify-content-around">
             <Button onClick={handleLogin}>Accedi</Button>
