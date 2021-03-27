@@ -23,7 +23,8 @@ const FormLogRegister = () => {
   }, [setInputEmail])
 
   return (
-    <Form>
+    <>
+    <Form className="flex-fill text-white">
       <Form.Group controlId="formBasicEmail">
         <Form.Label>Email address</Form.Label>
         <Form.Control 
@@ -52,26 +53,25 @@ const FormLogRegister = () => {
           {passwordError}
         </Form.Text>
       </Form.Group>
-      <div className="btnContainer">
-        {
-          hasAccount ? (
-            <>
-              <Button onClick={handleLogin}>Sign in</Button>
-              <p>Don't have an account?
-                <span onClick={()=>setHasAccount(!hasAccount)}>Sing up</span>
-              </p>
-            </>
-          ) : (
-            <>
-              <Button onClick={handleSignup}>Sign up</Button>
-              <p>Have an account?
-                <span onClick={()=>setHasAccount(!hasAccount)}>Sing in</span>
-              </p>
-            </>
-          )
-        }
-      </div>
+      {
+        hasAccount ? (
+          <>
+            <Button onClick={handleLogin} className="text-danger">Sign in</Button>
+            <p>
+              Don't have an account? <span className="border-bottom" onClick={()=>setHasAccount(!hasAccount)}>Sing up</span>
+            </p>
+          </>
+        ) : (
+          <>
+            <Button onClick={handleSignup} className="text-danger">Sign up</Button>
+            <p>
+              Have an account? <span className="border-bottom" onClick={()=>setHasAccount(!hasAccount)}>Sing in</span>
+            </p>
+          </>
+        )
+      }
     </Form>
+    </>
   )
 }
 

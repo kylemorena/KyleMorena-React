@@ -1,6 +1,7 @@
 import React,{useEffect,useState} from 'react'
 import {Link} from 'react-router-dom';
 import PropTypes from 'prop-types';
+import { FaBookmark,FaRegBookmark } from "react-icons/fa";
 import CardScss from './bookCard.module.scss';
 import {useGlobalContext} from '../../common/context';
 import defaultImage from '../../assets/KM_logo.svg'
@@ -35,25 +36,22 @@ const CardBook = ({volumeInfo,id}) => {
   },[id,whishList])
 
   return (
-    <div className="col m-2 p-0 bookBtn">
-    <>
+    <div className={`${CardScss['card']} shadow col m-2 p-0 bookBtn`}>
       <Link to={`/book/${id}`}>
-        <div className={`${CardScss['card']} shadow`}>
           <img src={links || defaultImage} alt={volumeInfo.title} />
-          {/* <h1>{title}</h1> */}
-        </div>
+          <h3>{volumeInfo.title}</h3>
       </Link>
       {
         toggle ? (
-          <button onClick={RemoveItem}>Remove</button>
+          <button onClick={RemoveItem} className="text-primary"><FaBookmark /></button>
         ) : ( 
-          <button onClick={AddItem}>Add</button>
+          <button onClick={AddItem} className="text-primary"><FaRegBookmark /></button>
         )
       }
-    </>
     </div>
   )
 }
+
 CardBook.propTypes = {
   volumeInfo: PropTypes.object.isRequired,
   id: PropTypes.string.isRequired,
