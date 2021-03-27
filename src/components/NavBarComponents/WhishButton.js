@@ -1,8 +1,8 @@
 import React from 'react'
 import {Link} from 'react-router-dom';
-import {useGlobalContext} from '../../common/context';
-import WishButtonScss from './WhishButton.module.scss';
 import { FaBookmark } from "react-icons/fa";
+import WishButtonScss from './whishButton.module.scss';
+import {useGlobalContext} from '../../common/context';
 
 const Whishlist = () => {
   const {whishList} = useGlobalContext()

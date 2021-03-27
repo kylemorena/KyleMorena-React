@@ -1,16 +1,19 @@
 import React from 'react';
 import {BrowserRouter as Router,Route,Switch} from 'react-router-dom';
-import './App.scss'
-import Home from './pages/Home';
-import Error from './pages/Error';
-import Book from './pages/BookDetail';
-import Collection from './pages/BooksCollection';
-import Whishlist from './pages/WhishList';
-
+import './app.scss'
+import Home from './pages/home';
+import Error from './pages/error_page';
+import Detail from './pages/detail_page';
+import Collection from './pages/collection_page';
+import Whishlist from './pages/whishlist_page';
+import {useGlobalContext} from './common/context';
+import Toast from './components/toast';
 
 const App = () =>{
-  
+  const {showToast} = useGlobalContext();
   return(
+    <>
+      {showToast && <Toast />}
       <Router>
           <Switch>
             <Route exact path='/'>
@@ -20,7 +23,7 @@ const App = () =>{
               <Whishlist />
             </Route>
             <Route path='/book/:id'>
-              <Book />
+              <Detail />
             </Route>
             <Route path='/books/collection/:id'>
               <Collection />
@@ -30,6 +33,7 @@ const App = () =>{
             </Route>
           </Switch>
       </Router>
+    </>
   )
 }
 

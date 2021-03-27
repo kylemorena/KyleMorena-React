@@ -1,12 +1,12 @@
 import React from 'react';
 import {Navbar,Container,Button} from 'react-bootstrap'
-import NavBarScss from './NavBar.module.scss';
-import SearchBar from './NavBarComponents/SearchBar';
-import {useGlobalContext} from '../common/context';
-import WhishButton from './NavBarComponents/WhishButton';
 import { FaSignOutAlt } from "react-icons/fa";
-import Copyright from './NavBarComponents/Copyright';
-import FormLogRegister from './NavBarComponents/FormLogRegister';
+import NavBarScss from './navBar.module.scss';
+import {useGlobalContext} from '../common/context';
+import FormLogRegister from './navbarComponents/formLogRegister';
+import SearchBar from './navbarComponents/searchBar';
+import WhishButton from './navbarComponents/whishButton';
+import Footer from './navbarComponents/footer';
 
 const NavBar = () => {
   const { user, handleLogout, } = useGlobalContext();
@@ -29,7 +29,7 @@ const NavBar = () => {
           <FormLogRegister/>
         )
       }
-      <Copyright />
+      <Footer />
     </Navbar>
   )
 }

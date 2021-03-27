@@ -1,8 +1,8 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
-import NavBar from '../components/NavBar';
 import {useGlobalContext} from '../common/context';
-import BookCard from '../components/CardComponent/BookCard';
+import NavBar from '../components/navBar';
+import BookCard from '../components/cardComponents/bookCard';
 
 const WhishList = () => {
   const {whishList} = useGlobalContext();

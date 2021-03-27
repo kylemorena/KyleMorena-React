@@ -21,7 +21,7 @@ const AppProvider = ({ children }) => {
   const [hasAccount,setHasAccount] = useState(false);
   const [whishList,setWhishList] = useState([]);
   const [inputEmail,setInputEmail] = useState({});
-  const [showToast, setShowToast] = useState(true);
+  const [showToast, setShowToast] = useState(false);
 
   //#region HANDLE LOGIN/SIGNUP & LOGOUT
   const clearInputs = () => {

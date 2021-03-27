@@ -1,6 +1,6 @@
-import React from 'react'
-import AutocompleteScss from './Autocomplete.module.scss';
+import React from 'react';
 import {Link} from 'react-router-dom';
+import AutocompleteScss from './autocomplete.module.scss';
 import {useGlobalContext} from '../../common/context';
 
 const Autocomplete = ({books}) => {

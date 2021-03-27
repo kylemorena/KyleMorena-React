@@ -1,6 +1,6 @@
 import React,{useEffect,useRef} from 'react';
 import {Toast,Button} from 'react-bootstrap';
-import ToastScss from './Toast.module.scss';
+import ToastScss from './toast.module.scss';
 import {useGlobalContext} from '../common/context';
 
 const ModalComponent = () => {

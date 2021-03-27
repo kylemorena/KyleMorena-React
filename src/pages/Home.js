@@ -1,18 +1,14 @@
 import React from 'react'
-import NavBar from '../components/NavBar';
-import HomeScss from './Home.module.scss';
-import Sections from '../components/Sections';
-import Hero from '../components/Hero';
-import Toast from '../components/Toast';
-import {useGlobalContext} from '../common/context';
+import HomeScss from './home.module.scss';
+import NavBar from '../components/navBar';
+import Hero from '../components/articleComponent/hero';
+import Sections from '../components/articleComponent/sections';
 
 const Home = () => {
-  const {showToast} = useGlobalContext();
   return (
     <main className={HomeScss["home"]}>
       <NavBar />
-      <article className={HomeScss["cards"]}>
-          {showToast && <Toast />}
+      <article className={HomeScss["Home"]}>
           <Hero />
           <Sections />
       </article>

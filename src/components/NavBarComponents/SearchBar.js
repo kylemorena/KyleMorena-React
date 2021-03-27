@@ -1,10 +1,10 @@
 import React,{useEffect,useRef} from 'react';
 import {Form, FormControl } from 'react-bootstrap';
-import { useGlobalContext } from '../../common/context';
-import SearchBarSCSS from './SearchBar.module.scss';
-import Autocomplete from './Autocomplete';
-import axios from 'axios';
 import { FaSistrix } from "react-icons/fa";
+import axios from 'axios';
+import SearchBarSCSS from './searchBar.module.scss';
+import { useGlobalContext } from '../../common/context';
+import Autocomplete from './autocomplete';
 
 
 const SearchBar = () => {

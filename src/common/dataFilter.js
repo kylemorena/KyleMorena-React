@@ -14,7 +14,7 @@ export const dataFilter = [
   {
     id: 3,
     title: 'download',
-    filter: 'isbn&showPreorders=true',
+    filter: 'isbn&download=epub&showPreorders=true',
     books: []
   }
 ]

@@ -1,9 +1,9 @@
 import React, {useState,useEffect,useCallback} from 'react';
 import { useParams, Link } from 'react-router-dom';
 import axios from 'axios';
-import BookScss from './Book.module.scss';
-import NavBar from '../components/NavBar';
-import Sections from '../components/Sections';
+import DetailScss from './detail.module.scss';
+import NavBar from '../components/navBar';
+import Sections from '../components/articleComponent/sections';
 
 const Book = () => {
   const { id } = useParams()
@@ -26,9 +26,9 @@ const Book = () => {
   },[id,getBookData])
 
   return (
-    <main className={BookScss["detail"]}>
+    <main className={DetailScss["detail"]}>
       <NavBar />
-      <article className={BookScss["cards"]}>
+      <article className={DetailScss["cards"]}>
         <Link to='/' className='ml-2'>
           back home
         </Link>

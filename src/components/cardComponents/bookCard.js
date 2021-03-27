@@ -1,9 +1,9 @@
 import React,{useEffect,useState} from 'react'
 import {Link} from 'react-router-dom';
 import PropTypes from 'prop-types';
-import CardScss from './SingleCard.module.scss';
-import defaultImage from '../../assets/KM_logo.svg'
+import CardScss from './bookCard.module.scss';
 import {useGlobalContext} from '../../common/context';
+import defaultImage from '../../assets/KM_logo.svg'
 
 const CardBook = ({volumeInfo,id}) => {
   const {user,addWhish,removeWhish,whishList,setShowToast} = useGlobalContext();

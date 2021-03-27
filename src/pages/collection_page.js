@@ -1,10 +1,10 @@
 import React,{useEffect,useState,useCallback} from 'react'
 import { useParams, Link } from 'react-router-dom';
 import axios from 'axios';
-import CollectionScss from './Collection.module.scss';
-import BookCard from '../components/CardComponent/BookCard';
+import CollectionScss from './collection.module.scss';
+import BookCard from '../components/cardComponents/bookCard';
 import { dataFilter } from '../common/dataFilter';
-import NavBar from '../components/NavBar';
+import NavBar from '../components/navBar';
 
 const BooksCollection = () => {
   const { id } = useParams();
