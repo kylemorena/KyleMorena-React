@@ -6,7 +6,6 @@ import BookCard from '../components/CardComponent/BookCard';
 import { dataFilter } from '../common/dataFilter';
 import NavBar from '../components/NavBar';
 
-
 const BooksCollection = () => {
   const { id } = useParams();
   const [books,setBooks] = useState([]);
@@ -30,7 +29,7 @@ const BooksCollection = () => {
   return (
     <main className="d-flex">
       <NavBar />
-      <div className={`${CollectionScss['collection']}`}>
+      <article className={`${CollectionScss['collection']}`}>
         <Link to='/' className='ml-2'>
             back home
         </Link>
@@ -42,7 +41,7 @@ const BooksCollection = () => {
             })
           }
         </div>
-      </div>
+      </article>
     </main>
   )
 }
