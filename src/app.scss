@@ -1,14 +1,18 @@
 $theme-colors:( 
-  "primary": #e8505b,
-  "secondary": #f9d5d7
+  "primary":#e8505b,
+  "secondary": #f9d5d7,
+  "info": #263238
 );
 @function theme-color($key: "primary") {
   @return map-get($theme-colors, $key);
 }
-@import "~bootstrap/scss/bootstrap";
 
-//Custom scss
-@import "customApp";
+//import
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@700&display=swap');
+@import "~bootstrap/scss/bootstrap";
+@import "./common/common.scss";
+@import "./common/media_large.scss";
+
 
 
 

@@ -1,6 +1,7 @@
-import React from 'react';
-import {Navbar,Container,Button} from 'react-bootstrap'
-import { FaSignOutAlt } from "react-icons/fa";
+import React,{useState,useEffect,useRef} from 'react';
+import {Navbar,Button} from 'react-bootstrap'
+import { FaSignOutAlt,FaBars } from "react-icons/fa";
+
 import NavBarScss from './navBar.module.scss';
 import {useGlobalContext} from '../common/context';
 import FormLogRegister from './navbarComponents/formLogRegister';
@@ -9,22 +10,39 @@ import WhishButton from './navbarComponents/whishButton';
 import Footer from './navbarComponents/footer';
 
 const NavBar = () => {
-  const { user, handleLogout, } = useGlobalContext();
+  const { user, handleLogout } = useGlobalContext();
+  const [isSidebarOpen, setIsSidebarOpen] = useState(false);
+  const sideBar = useRef(null)
+
+  const openSidebar = () => {
+    setIsSidebarOpen(true);
+  };
+
+  const handleClickOutside = (e) => {
+    if(sideBar.current && !sideBar.current.contains(e.target)){
+      setIsSidebarOpen(false);
+    }
+  };
+
+  useEffect(()=>{
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+    }
+  })
 
   return (
-    <Navbar className={`${NavBarScss['navbar']} bg-primary m-0 p-0 px-2`} variant="dark">
-      <Navbar.Brand href="/" className="m-0 my-3 p-0">
-        <h1 className="display-4">Bookssss</h1>
-      </Navbar.Brand>
+    <Navbar bg="primary" variant="dark" className={NavBarScss['navbar']}>
+      <Navbar.Brand href="/" className={`${NavBarScss['logo']} display-4`}>Bookssss</Navbar.Brand>
       {
         user ? (
-          <Container className="d-flex flex-fill flex-column justify-content-between align-items-start">
+          <div className={NavBarScss['search-whislist']}>
             <div>
               <SearchBar />
               <WhishButton />
             </div>
-            <Button className="text-primary" onClick={handleLogout}><FaSignOutAlt /> ESCI</Button>
-          </Container>
+            <Button onClick={handleLogout}><FaSignOutAlt /> ESCI</Button>
+          </div>
         ) : (
           <FormLogRegister/>
         )

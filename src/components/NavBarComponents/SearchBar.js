@@ -39,7 +39,7 @@ const SearchBar = () => {
 
   return (
     <>
-      <Form className={`${SearchBarSCSS['SearchForm']}`} onSubmit={handleSubmit} ref={searchBar}>
+      <Form className={`${SearchBarSCSS['SearchForm']} position-relative`} onSubmit={handleSubmit} ref={searchBar}>
         <FaSistrix className="text-primary"/>
         <FormControl 
           type="text" 
@@ -47,8 +47,8 @@ const SearchBar = () => {
           placeholder="Search..."
           onChange={handleChange}
         />
+        {data.isOpen ? <Autocomplete books={data.books}/> : null}
       </Form>
-      {data.isOpen ? <Autocomplete books={data.books}/> : null}
     </>
   )
 }

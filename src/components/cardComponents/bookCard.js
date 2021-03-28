@@ -28,12 +28,16 @@ const CardBook = ({volumeInfo,id}) => {
   }
 
   useEffect(()=>{
-    whishList.forEach(res=>{
-      if(res.id===id){
-        setToggle(res.addItem);
-      }
-    })
-  },[id,whishList])
+    if(user){
+      whishList.forEach(res=>{
+        if(res.id===id){
+          setToggle(res.addItem);
+        }
+      })
+    }else{
+      setToggle(false);
+    }
+  },[whishList, id, user])
 
   return (
     <div className={`${CardScss['card']} shadow col m-2 p-0 bookBtn`}>

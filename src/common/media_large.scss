@@ -1,0 +1,14 @@
+@include media-breakpoint-up(lg) {
+  main{
+    display: flex;
+    background-color: $gray-100;
+    font-family: 'Merriweather';
+    nav.navbar{
+      align-items: flex-start;
+      flex-direction: column;
+      min-width: 20%;
+      max-width: 20%;
+      min-height: 100vh;
+    }
+  }
+}

@@ -1,0 +1,48 @@
+//Custom scss
+main{
+  background-color: $gray-100;
+  font-family: 'Merriweather';
+}
+
+//#region NAVBAR
+nav{
+  font-family: 'Lato';
+  button.sidebar-toggle{
+    color: $white;
+    font-size: 2rem;
+    background: transparent;
+    border-color: transparent;
+  }
+  button.btn{
+    display:inline-flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 50%;
+    background-color: $white;
+    color:theme-color("primary");
+    svg{
+      height: 90%;
+      width: auto;
+    }
+  }
+  button.btn:hover{
+    background-color: theme-color("secondary");
+    border: 1px solid darken($color: $red, $amount: 5);
+    color:$red;
+  }
+  a{
+    color: $white;
+    span{
+      background-color: $white;
+      color:theme-color("primary");
+    }
+  }
+  a:hover{
+    text-decoration: none;
+    color:theme-color("secondary");
+    span{
+      background-color: theme-color("secondary");
+    }
+  }
+}
+//#endregion

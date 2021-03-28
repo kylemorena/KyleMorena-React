@@ -5,6 +5,7 @@ import {useGlobalContext} from '../../common/context';
 const FormLogRegister = () => {
   const inputEmail = useRef(null)
   const {
+    user,
     email,
     setEmail,
     password,
@@ -36,7 +37,7 @@ const FormLogRegister = () => {
           value={email} 
           onChange={(e)=>setEmail(e.target.value)} 
         />
-        <Form.Text className="text-warning">
+        <Form.Text className="text-dark">
           {emailError}
         </Form.Text>
       </Form.Group>
@@ -49,21 +50,21 @@ const FormLogRegister = () => {
           value={password}
           onChange={(e)=>setPassword(e.target.value)}
         />
-        <Form.Text className="text-warning">
+        <Form.Text className="text-dark">
           {passwordError}
         </Form.Text>
       </Form.Group>
       {
         hasAccount ? (
           <>
-            <Button onClick={handleLogin} className="text-danger">Sign in</Button>
+            <Button onClick={handleLogin} className="btn">Sign in</Button>
             <p>
-              Don't have an account? <span className="border-bottom" onClick={()=>setHasAccount(!hasAccount)}>Sing up</span>
+              Don't have an account? <span onClick={()=>setHasAccount(!hasAccount)}>Sing up</span>
             </p>
           </>
         ) : (
           <>
-            <Button onClick={handleSignup} className="text-danger">Sign up</Button>
+            <Button onClick={handleSignup} className="btn">Sign up</Button>
             <p>
               Have an account? <span className="border-bottom" onClick={()=>setHasAccount(!hasAccount)}>Sing in</span>
             </p>

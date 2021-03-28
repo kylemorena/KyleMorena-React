@@ -34,7 +34,8 @@ const AppProvider = ({ children }) => {
     setPasswordError('');
   }
   
-  const handleLogin = () =>{
+  const handleLogin = (e) =>{
+    e.preventDefault();
     clearErrors();
     initApp
       .auth()
@@ -55,7 +56,8 @@ const AppProvider = ({ children }) => {
       })
   };
   
-  const handleSignup = () => {
+  const handleSignup = (e) => {
+    e.preventDefault();
     clearErrors();
     initApp
       .auth()
@@ -84,6 +86,7 @@ const AppProvider = ({ children }) => {
   
   const handleLogout = () => {
     initApp.auth().signOut();
+    setWhishList([]);
   };
   //#endregion
 
@@ -113,7 +116,11 @@ const AppProvider = ({ children }) => {
       initApp.auth().onAuthStateChanged((user)=>{
         if(user){
           db.collection('users').doc(user.uid).get().then((res)=>{
-            setWhishList(res.data().books);
+            if(res.data()){
+              setWhishList(res.data().books);
+            }else{
+              setWhishList([]);
+            };
           })
           clearInputs('');
           setUser(user);

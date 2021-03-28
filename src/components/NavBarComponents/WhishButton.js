@@ -10,7 +10,7 @@ const Whishlist = () => {
   return (
     <Link to={'/whishlist'} className={`${WishButtonScss['btn']} p-0 mt-4 color`}>
       <FaBookmark/>&nbsp; PREFERITI &nbsp;
-      <span className="px-2 rounded-circle">{whishList.length}</span>
+      <span className="px-2">{whishList.length}</span>
     </Link>
   )
 }

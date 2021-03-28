@@ -17,7 +17,7 @@ const Autocomplete = ({books}) => {
             books.map(book=>{
               return(
                 <Link to={`/book/${book.id}`} key={book.id} onClick={handleClick}>
-                  <div className="bookBtn">{book.volumeInfo.title}</div>
+                  <div className="p-1 text-info bookBtn">{book.volumeInfo.title}</div>
                 </Link>
               )
             })
