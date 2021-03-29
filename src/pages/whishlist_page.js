@@ -9,11 +9,11 @@ const WhishList = () => {
   return (
     <main className="d-flex">
       <NavBar />
-      <article className="">
-        <Link to='/' className='ml-2 text-dark'>
+      <article className="m-3">
+        <Link to='/' className='ml-2 text-danger'>
           Back to home
         </Link>
-        <div className="row row-cols-4">
+        <div className="row row-cols-4 m-0 p-0">
           {
             whishList.map((book)=>{
               return <BookCard key={book.id} {...book} />

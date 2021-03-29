@@ -22,6 +22,8 @@ const AppProvider = ({ children }) => {
   const [whishList,setWhishList] = useState([]);
   const [inputEmail,setInputEmail] = useState({});
   const [showToast, setShowToast] = useState(false);
+  const [bookData, setBookData] = useState({})
+
 
   //#region HANDLE LOGIN/SIGNUP & LOGOUT
   const clearInputs = () => {
@@ -160,7 +162,9 @@ const AppProvider = ({ children }) => {
         inputEmail,
         setInputEmail,
         showToast,
-        setShowToast
+        setShowToast,
+        bookData, 
+        setBookData
       }}>
       {children}
     </AppContext.Provider>

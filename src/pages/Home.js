@@ -8,7 +8,7 @@ const Home = () => {
   return (
     <main className={HomeScss["home"]}>
       <NavBar />
-      <article className={HomeScss["Home"]}>
+      <article className={`${HomeScss["Home"]} m-3`}>
           <Hero />
           <Sections />
       </article>

@@ -8,7 +8,7 @@ import {useGlobalContext} from '../../common/context';
 import BookCard from '../cardComponents/bookCard';
 
 const CardsGroup = () => {
-  const {apiKey} = useGlobalContext();
+  const {apiKey,bookData} = useGlobalContext();
   const [freeEbooks,setFreeEbooks] = useState({title:'', books:[]})
   const [paidEbooks,setPaidEbooks] = useState({title:'', books:[]})
   const [downloadEbooks,setDownloadEbooks] = useState({title:'', books:[]});
@@ -53,41 +53,50 @@ const CardsGroup = () => {
         loading ?  (
           <Loading />
         ) : (
-          <div className="my-3 mx-4">
-          <div className="d-flex justify-content-between">
-            <h2 className={SectionsScss['title']}>{freeEbooks.title}</h2>
-            <Link to={`/books/collection/${freeEbooks.title}`} className='ml-2'>
-              vedi tutti
-            </Link>
+          <div className="mt-3">
+            <div className="d-flex justify-content-between">
+              <h2 className={SectionsScss['title']}>{freeEbooks.title}</h2>
+              <Link to={`/books/collection/${freeEbooks.title}`} className='ml-2'>
+                Vedi tutti
+              </Link>
+            </div>
+            <section className={"row row-cols-3 m-0 p-0"}> 
+              {freeEbooks.books.map((book)=>{
+                if(book.id===bookData.id){
+                  return null;
+                }
+                return <BookCard key={book.id} {...book} />
+              })}
+            </section>
+            <div className="d-flex justify-content-between">
+              <h2 className={SectionsScss['title']}>{paidEbooks.title}</h2>
+              <Link to={`/books/collection/${paidEbooks.title}`} className='ml-2'>
+                Vedi tutti
+              </Link>
+            </div>
+            <section className="row row-cols-3 m-0 p-0"> 
+              {paidEbooks.books.map((book)=>{
+                if(book.id===bookData.id){
+                  return null;
+                }
+                return <BookCard key={book.id} {...book} />
+              })}
+            </section>
+            <div className="d-flex justify-content-between">
+              <h2 className={SectionsScss['title']}>{downloadEbooks.title}</h2>
+              <Link to={`/books/collection/${downloadEbooks.title}`} className='ml-2'>
+                Vedi tutti
+              </Link>
+            </div>
+            <section className="row row-cols-3 m-0 p-0"> 
+              {downloadEbooks.books.map((book)=>{
+                if(book.id===bookData.id){
+                  return null;
+                }
+                return <BookCard key={book.id} {...book} />
+              })}
+            </section>
           </div>
-          <section className={"row row-cols-3 m-0 p-0"}> 
-            {freeEbooks.books.map((book)=>{
-              return <BookCard key={book.id} {...book} />
-            })}
-          </section>
-          <div className="d-flex justify-content-between">
-            <h2 className={SectionsScss['title']}>{paidEbooks.title}</h2>
-            <Link to={`/books/collection/${paidEbooks.title}`} className='ml-2'>
-              vedi tutti
-            </Link>
-          </div>
-          <section className="row row-cols-3 m-0 p-0"> 
-            {paidEbooks.books.map((book)=>{
-              return <BookCard key={book.id} {...book} />
-            })}
-          </section>
-          <div className="d-flex justify-content-between">
-            <h2 className={SectionsScss['title']}>{downloadEbooks.title}</h2>
-            <Link to={`/books/collection/${downloadEbooks.title}`} className='ml-2'>
-              vedi tutti
-            </Link>
-          </div>
-          <section className="row row-cols-3 m-0 p-0"> 
-            {downloadEbooks.books.map((book)=>{
-              return <BookCard key={book.id} {...book} />
-            })}
-          </section>
-        </div>
         )
       }
     </>

@@ -1,0 +1,35 @@
+.detail{
+  margin-top: 16px;
+  display: flex;
+  div.img-thumbnail{
+    position: relative;
+    max-height: auto;
+    max-width: auto;
+    margin-right: 8px;
+    img{
+      max-height: 170;
+      max-width: 150;
+      border-radius: 1rem;
+    }
+    button{
+      background-color: transparent;
+      position: absolute;
+      height:auto;
+      width:auto;
+      top:0;
+      left:8px;
+      z-index: 1;
+      svg{
+        height: 26px;
+        width: auto;
+      }
+    };
+  }
+  div.view-details{
+    overflow: hidden;
+    width: 100%;
+    span{
+      color:theme-color("primary")
+    }
+  }
+}

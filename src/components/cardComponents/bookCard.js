@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import { FaBookmark,FaRegBookmark } from "react-icons/fa";
 import CardScss from './bookCard.module.scss';
 import {useGlobalContext} from '../../common/context';
-import defaultImage from '../../assets/KM_logo.svg'
+import defaultImage from '../../assets/Default_Cover.png';
 
 const CardBook = ({volumeInfo,id}) => {
   const {user,addWhish,removeWhish,whishList,setShowToast} = useGlobalContext();
@@ -40,7 +40,7 @@ const CardBook = ({volumeInfo,id}) => {
   },[whishList, id, user])
 
   return (
-    <div className={`${CardScss['card']} shadow col m-2 p-0 bookBtn`}>
+    <div className={`${CardScss['card']} col m-2 p-0 bookBtn`}>
       <Link to={`/book/${id}`}>
           <img src={links || defaultImage} alt={volumeInfo.title} />
           <h3>{volumeInfo.title}</h3>

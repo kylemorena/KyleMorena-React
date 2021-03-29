@@ -29,12 +29,12 @@ const BooksCollection = () => {
   return (
     <main className="d-flex">
       <NavBar />
-      <article className={`${CollectionScss['collection']}`}>
+      <article className={`${CollectionScss['collection']} m-3`}>
         <Link to='/' className='ml-2'>
-            back home
+          Indietro
         </Link>
         <h2>{id}</h2>
-        <div className="row row-cols-4">
+        <div className="row row-cols-3 m-0 p-0">
           {loading ? '' : 
             books.map((book)=>{
               return <BookCard key={book.id} {...book} />

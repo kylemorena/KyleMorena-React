@@ -1,14 +1,16 @@
 .card{
-  max-height: 170px;
-  max-width: 128px;
-  border-radius: 0.2rem 1rem 0.2rem 0.2rem;
+  background-color: transparent;
+  max-width: 150px;
   overflow: hidden;
+  a{
+    img{
+      border-radius: 0.2rem 1rem 0.2rem 0.2rem;
+    }
+  }
   h3{
-    width:90%;
+    width:70%;
     bottom:0;
-    position:absolute;
     left:8px;
-    z-index:1;
     color: black;
     font-size: medium;
     white-space: nowrap;
@@ -17,14 +19,14 @@
   }
   button{
     background-color: transparent;
-    height:fit-content;
-    width:fit-content;
     position:absolute;
+    height:auto;
+    width:auto;
     top:0;
     left:8px;
     z-index:1;
     svg{
-      height: 24px;
+      height: 26px;
       width: auto;
     }
   }
