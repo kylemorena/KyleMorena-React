@@ -32,22 +32,28 @@ const NavBar = () => {
   })
 
   return (
-    <Navbar bg="primary" variant="dark" className={NavBarScss['navbar']}>
+    <Navbar 
+      bg="primary" 
+      variant="dark" 
+      className={isSidebarOpen ? `${NavBarScss['navbar']} show-sidebar` : `${NavBarScss['navbar']} hide-sidebar`}>
       <Navbar.Brand href="/" className={`${NavBarScss['logo']} display-4`}>Bookssss</Navbar.Brand>
-      {
-        user ? (
-          <div className={NavBarScss['search-whislist']}>
-            <div>
-              <SearchBar />
-              <WhishButton />
+      <aside ref={sideBar}>
+        {
+          user ? (
+            <div className={NavBarScss['items']}>
+              <div>
+                <SearchBar />
+                <WhishButton />
+              </div>
+              <Button onClick={handleLogout}><FaSignOutAlt /> ESCI</Button>
             </div>
-            <Button onClick={handleLogout}><FaSignOutAlt /> ESCI</Button>
-          </div>
-        ) : (
-          <FormLogRegister/>
-        )
-      }
-      <Footer />
+          ) : (
+            <FormLogRegister/>
+          )
+        }
+        <Footer />
+      </aside>
+      <Button className="sidebar-toggle" bg="trasparent" onClick={openSidebar}><FaBars /></Button>
     </Navbar>
   )
 }

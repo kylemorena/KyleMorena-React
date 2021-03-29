@@ -5,7 +5,6 @@ import {useGlobalContext} from '../../common/context';
 const FormLogRegister = () => {
   const inputEmail = useRef(null)
   const {
-    user,
     email,
     setEmail,
     password,
@@ -25,7 +24,7 @@ const FormLogRegister = () => {
 
   return (
     <>
-    <Form className="flex-fill text-white">
+    <Form className="text-white mt-3">
       <Form.Group controlId="formBasicEmail">
         <Form.Label>Email address</Form.Label>
         <Form.Control 

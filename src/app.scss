@@ -11,7 +11,8 @@ $theme-colors:(
 @import url('https://fonts.googleapis.com/css2?family=Lato:wght@700&display=swap');
 @import "~bootstrap/scss/bootstrap";
 @import "./common/common.scss";
-@import "./common/media_large.scss";
+@import "./common/media_largeDown.scss";
+@import "./common/media_largeUp.scss";
 
 
 

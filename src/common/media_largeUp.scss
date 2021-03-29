@@ -1,4 +1,4 @@
-@include media-breakpoint-up(lg) {
+@media (min-width: 992px) {
   main{
     display: flex;
     background-color: $gray-100;
@@ -9,6 +9,13 @@
       min-width: 20%;
       max-width: 20%;
       min-height: 100vh;
+      aside{
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        flex-grow: 1;
+
+      }
     }
   }
 }

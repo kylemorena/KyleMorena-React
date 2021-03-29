@@ -60,7 +60,7 @@ const CardsGroup = () => {
               vedi tutti
             </Link>
           </div>
-          <section className={"row m-0 p-0"}> 
+          <section className={"row row-cols-3 m-0 p-0"}> 
             {freeEbooks.books.map((book)=>{
               return <BookCard key={book.id} {...book} />
             })}
@@ -71,7 +71,7 @@ const CardsGroup = () => {
               vedi tutti
             </Link>
           </div>
-          <section className="row m-0 p-0"> 
+          <section className="row row-cols-3 m-0 p-0"> 
             {paidEbooks.books.map((book)=>{
               return <BookCard key={book.id} {...book} />
             })}
@@ -82,7 +82,7 @@ const CardsGroup = () => {
               vedi tutti
             </Link>
           </div>
-          <section className="row m-0 p-0"> 
+          <section className="row row-cols-3 m-0 p-0"> 
             {downloadEbooks.books.map((book)=>{
               return <BookCard key={book.id} {...book} />
             })}

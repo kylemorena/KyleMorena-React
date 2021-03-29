@@ -1,0 +1,45 @@
+@media (max-width: 991.98px) {
+  main{
+    nav.hide-sidebar{
+      aside{
+        position: fixed;
+        top: 0;
+        left: 0;
+        transform: translate(-100%);
+      }
+      button.sidebar-toggle{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+    }
+    nav.show-sidebar{
+      aside{
+        background-color: theme-color("primary");
+        position: fixed;
+        top: 0;
+        right: 0;
+        z-index: 2;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        min-width: 25%;
+        max-width: 25%;
+        min-height: 100vh;
+        padding: 0 10px;
+        transform: translate(0);
+      }
+    }
+    nav.show-sidebar::before{
+      content: "";
+      position: fixed;
+      display: block;
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 0;
+      background-color: rgba(0,0,0,0.5);
+      z-index: 2;
+    }
+  }
+}
