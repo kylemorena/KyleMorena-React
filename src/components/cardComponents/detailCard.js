@@ -47,25 +47,26 @@ const DetailCard = ({volumeInfo,id}) => {
       id!=='' ? (
         <div className={DetailScss['detail']}>
       <div className={DetailScss['img-thumbnail']}>
-        {
-          toggle ? (
-            <button onClick={RemoveItem} className="text-primary"><FaBookmark /></button>
-          ) : ( 
-            <button onClick={AddItem} className="text-primary"><FaRegBookmark /></button>
-          )
-        }
         <img src={links || defaultImage} alt={volumeInfo.title} />
+        {
+        toggle ? (
+          <button onClick={RemoveItem} className="text-primary"><FaBookmark /></button>
+        ) : ( 
+          <button onClick={AddItem} className="text-primary"><FaRegBookmark /></button>
+        )
+      }
       </div>
       <div className={DetailScss['view-details']}>
         <h1>{volumeInfo.title || 'Senza titolo'}</h1>
-        <p>
+        <p className="mb-0">
           Autore: <span className="text-primary">{authors || 'Sconosciuto'}</span>
         </p>
         <p>
-          Editrice: {volumeInfo.publisher ? <span className="text-primary">{volumeInfo.publisher}</span> : ''}
+          Casa Editrice: {volumeInfo.publisher ? <span className="text-primary">{volumeInfo.publisher}</span> : ''}
         </p>
         <p>
-          Description: {volumeInfo.description || 'Questo libro non ha una descrizione'}
+          Descrizione <br/> 
+          <span className="text-info">{volumeInfo.description || 'Questo libro non ha una descrizione'}</span>
         </p>
       </div>
     </div>

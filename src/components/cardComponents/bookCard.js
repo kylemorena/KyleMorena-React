@@ -10,6 +10,7 @@ const CardBook = ({volumeInfo,id}) => {
   const {user,addWhish,removeWhish,whishList,setShowToast} = useGlobalContext();
   const [toggle,setToggle] = useState(false)
   const links = volumeInfo.imageLinks && volumeInfo.imageLinks.thumbnail;
+  const authors = volumeInfo.authors && volumeInfo.authors.toString();
 
   const AddItem = () => {
     if(user){
@@ -40,10 +41,13 @@ const CardBook = ({volumeInfo,id}) => {
   },[whishList, id, user])
 
   return (
-    <div className={`${CardScss['card']} col m-2 p-0 bookBtn`}>
+    <div className={`${CardScss['card']} col m-0 p-2 bookBtn`}>
       <Link to={`/book/${id}`}>
           <img src={links || defaultImage} alt={volumeInfo.title} />
-          <h3>{volumeInfo.title}</h3>
+          <div>
+            <p className="m-0 lead">{volumeInfo.title}</p>
+            <p className="mb-0 text-primary">{authors || 'Sconosciuto'}</p>
+          </div>
       </Link>
       {
         toggle ? (

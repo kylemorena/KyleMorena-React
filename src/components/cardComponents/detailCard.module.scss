@@ -5,22 +5,26 @@
     position: relative;
     max-height: auto;
     max-width: auto;
-    margin-right: 8px;
+    margin-right: 16px;
     img{
-      max-height: 170;
-      max-width: 150;
+      height: auto;
+      width: 20vw;
+      min-width: 150px;
       border-radius: 1rem;
+      box-shadow: 2px 3px 10px  black;
     }
     button{
+      position: absolute;
       background-color: transparent;
       position: absolute;
       height:auto;
       width:auto;
-      top:0;
+      top:-8px;
       left:8px;
       z-index: 1;
       svg{
-        height: 26px;
+        height: 4vw;
+        min-height: 30px;
         width: auto;
       }
     };
@@ -28,8 +32,23 @@
   div.view-details{
     overflow: hidden;
     width: 100%;
-    span{
-      color:theme-color("primary")
+    h1{
+      margin-bottom: 0;
+      font-weight: 900;
+    }
+    p{
+      font-weight: bold;
+      span{
+        font-weight: normal;
+      }
+    }
+    p:last-child{
+      font-weight: 900;
+      font-size: 2rem;
+      line-height: 0.8;
+      span{
+        font-size: 1rem;
+      }
     }
   }
 }

@@ -1,30 +1,42 @@
 .card{
   background-color: transparent;
-  max-width: 150px;
   overflow: hidden;
+  display: flex;
+  justify-content: center;
+  height: 250px;
   a{
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
     img{
+      height: 162px;
+      width: 128px;
       border-radius: 0.2rem 1rem 0.2rem 0.2rem;
+      box-shadow: 2px 3px 10px  black;
+    }
+    div{
+      width: 128px;
+      bottom:0;
+      left:8px;
+      p{
+        color: black;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
     }
   }
-  h3{
-    width:70%;
-    bottom:0;
-    left:8px;
-    color: black;
-    font-size: medium;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-  }
+  
   button{
     background-color: transparent;
     position:absolute;
     height:auto;
     width:auto;
-    top:0;
-    left:8px;
-    z-index:1;
+    top:1.4vh;
+    left:35px;
+    z-index:999;
     svg{
       height: 26px;
       width: auto;

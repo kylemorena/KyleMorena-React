@@ -1,6 +1,7 @@
 import React,{useState,useEffect,useCallback} from 'react';
 import {Link} from 'react-router-dom';
 import axios from 'axios';
+import { FaAngleRight,FaFire,FaDollarSign } from "react-icons/fa";
 import SectionsScss from './sections.module.scss';
 import Loading from './loading';
 import {dataFilter} from '../../common/dataFilter';
@@ -54,13 +55,14 @@ const CardsGroup = () => {
           <Loading />
         ) : (
           <div className="mt-3">
+            {/* FREE-EBOOKS nuove uscite */}
             <div className="d-flex justify-content-between">
-              <h2 className={SectionsScss['title']}>{freeEbooks.title}</h2>
+              <h2 className={SectionsScss['title']}><FaFire />{freeEbooks.title}</h2>
               <Link to={`/books/collection/${freeEbooks.title}`} className='ml-2'>
-                Vedi tutti
+                Vedi tutti <FaAngleRight />
               </Link>
             </div>
-            <section className={"row row-cols-3 m-0 p-0"}> 
+            <section className="row row-cols-2 row-cols-sm-3 row-cols-md-5 row-cols-xl-6 m-0 p-0"> 
               {freeEbooks.books.map((book)=>{
                 if(book.id===bookData.id){
                   return null;
@@ -68,13 +70,15 @@ const CardsGroup = () => {
                 return <BookCard key={book.id} {...book} />
               })}
             </section>
+
+            {/* PAID-EBOOKS i più venduti */}
             <div className="d-flex justify-content-between">
-              <h2 className={SectionsScss['title']}>{paidEbooks.title}</h2>
+              <h2 className={SectionsScss['title']}><FaDollarSign /> {paidEbooks.title}</h2>
               <Link to={`/books/collection/${paidEbooks.title}`} className='ml-2'>
-                Vedi tutti
+                Vedi tutti <FaAngleRight />
               </Link>
             </div>
-            <section className="row row-cols-3 m-0 p-0"> 
+            <section className="row row-cols-2 row-cols-sm-3 row-cols-md-5 row-cols-xl-6 m-0 p-0"> 
               {paidEbooks.books.map((book)=>{
                 if(book.id===bookData.id){
                   return null;
@@ -82,13 +86,15 @@ const CardsGroup = () => {
                 return <BookCard key={book.id} {...book} />
               })}
             </section>
+
+            {/* EBOOKS-Scaricabili preorders */}
             <div className="d-flex justify-content-between">
               <h2 className={SectionsScss['title']}>{downloadEbooks.title}</h2>
-              <Link to={`/books/collection/${downloadEbooks.title}`} className='ml-2'>
-                Vedi tutti
+              <Link to={`/books/collection/${downloadEbooks.title}`}>
+                Vedi tutti <FaAngleRight />
               </Link>
             </div>
-            <section className="row row-cols-3 m-0 p-0"> 
+            <section className="row row-cols-2 row-cols-sm-3 row-cols-md-5 row-cols-xl-6 m-0 p-0"> 
               {downloadEbooks.books.map((book)=>{
                 if(book.id===bookData.id){
                   return null;

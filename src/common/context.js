@@ -101,16 +101,15 @@ const AppProvider = ({ children }) => {
       setWhishList([...whishList,book])
     })
   }
-  const removeWhish = (book) =>{
-    const store = db.collection('users').doc(user.uid);
+  const removeWhish = async (book) =>{
+    const store = await db.collection('users').doc(user.uid);
     store.update({
       books: firebaseValue.arrayRemove(book)
-    }).then(()=>{
-      store.get().then(res=>{
-        setWhishList(res.data().books)
-      })
     })
+    const newList = whishList.filter((line)=>line.id !== book.id)
+    setWhishList(newList);
   }
+
   //#endregion
 
   useEffect(()=>{
@@ -164,7 +163,7 @@ const AppProvider = ({ children }) => {
         showToast,
         setShowToast,
         bookData, 
-        setBookData
+        setBookData,
       }}>
       {children}
     </AppContext.Provider>

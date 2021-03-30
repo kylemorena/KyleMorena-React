@@ -1,3 +1,4 @@
+//#region media-breakpoint-down 991.98px
 @media (max-width: 991.98px) {
   main{
     nav.hide-sidebar{
@@ -23,12 +24,12 @@
         display: flex;
         flex-direction: column;
         justify-content: space-between;
-        min-width: 25%;
-        max-width: 25%;
+        max-width: 40vw;
         min-height: 100vh;
         padding: 0 10px;
         transform: translate(0);
       }
+
     }
     nav.show-sidebar::before{
       content: "";
@@ -43,3 +44,25 @@
     }
   }
 }
+//#endregion
+
+//#region media-breakpoint-down 767.98px
+@media (max-width: 767.98px){
+  main{
+    nav.show-sidebar{
+      aside{
+        min-width: 50vw;
+      }
+    }
+  }
+  @include media-breakpoint-down(xs){
+    main{
+      nav.show-sidebar{
+        aside{
+          min-width: 70vw;
+        }
+      }
+    }
+  }
+}
+//#endregion

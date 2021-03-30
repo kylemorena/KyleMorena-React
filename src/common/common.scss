@@ -1,7 +1,15 @@
 //Custom scss
 main{
-  background-color: $gray-200;
+  background-color:$white;
   font-family: 'Merriweather';
+  article{
+    h2{
+      svg{
+        background-color: theme-color("secondary");
+        color:theme-color("primary");
+      }
+    }
+  }
 }
 
 //#region NAVBAR

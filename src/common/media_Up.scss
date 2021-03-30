@@ -5,8 +5,8 @@
     nav.navbar{
       align-items: flex-start;
       flex-direction: column;
-      min-width: 20%;
-      max-width: 20%;
+      max-width: 25vw;
+      min-width: 25vw;
       min-height: 100vh;
       aside{
         display: flex;
@@ -14,6 +14,10 @@
         justify-content: space-between;
         flex-grow: 1;
 
+      }
+      @include media-breakpoint-up(xl){
+        max-width: 20vw;
+        min-width: 20vw;
       }
     }
   }

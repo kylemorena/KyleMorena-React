@@ -1,6 +1,7 @@
 import React,{useEffect,useState,useCallback} from 'react'
 import { useParams, Link } from 'react-router-dom';
 import axios from 'axios';
+import { FaAngleLeft } from "react-icons/fa";
 import CollectionScss from './collection.module.scss';
 import BookCard from '../components/cardComponents/bookCard';
 import { dataFilter } from '../common/dataFilter';
@@ -27,11 +28,11 @@ const BooksCollection = () => {
   },[id,fetchBooks])
 
   return (
-    <main className="d-flex">
+    <main className="">
       <NavBar />
       <article className={`${CollectionScss['collection']} m-3`}>
-        <Link to='/' className='ml-2'>
-          Indietro
+        <Link to='/' className="d-inline-flex align-items-center">
+          <FaAngleLeft/> Indietro
         </Link>
         <h2>{id}</h2>
         <div className="row row-cols-3 m-0 p-0">
