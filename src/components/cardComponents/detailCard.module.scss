@@ -1,5 +1,5 @@
 .detail{
-  margin-top: 16px;
+  margin-top: 20px;
   display: flex;
   div.img-thumbnail{
     position: relative;
@@ -19,8 +19,8 @@
       position: absolute;
       height:auto;
       width:auto;
-      top:-8px;
-      left:8px;
+      top:-15px;
+      left:12px;
       z-index: 1;
       svg{
         height: 4vw;

@@ -56,7 +56,7 @@ const CardsGroup = () => {
         ) : (
           <div className="mt-3">
             {/* FREE-EBOOKS nuove uscite */}
-            <div className="d-flex justify-content-between">
+            <div className="d-flex justify-content-between align-items-center">
               <h2 className={SectionsScss['title']}><FaFire />{freeEbooks.title}</h2>
               <Link to={`/books/collection/${freeEbooks.title}`} className='ml-2'>
                 Vedi tutti <FaAngleRight />
@@ -72,7 +72,7 @@ const CardsGroup = () => {
             </section>
 
             {/* PAID-EBOOKS i più venduti */}
-            <div className="d-flex justify-content-between">
+            <div className="d-flex justify-content-between align-items-center">
               <h2 className={SectionsScss['title']}><FaDollarSign /> {paidEbooks.title}</h2>
               <Link to={`/books/collection/${paidEbooks.title}`} className='ml-2'>
                 Vedi tutti <FaAngleRight />
@@ -88,7 +88,7 @@ const CardsGroup = () => {
             </section>
 
             {/* EBOOKS-Scaricabili preorders */}
-            <div className="d-flex justify-content-between">
+            <div className="d-flex justify-content-between align-items-center">
               <h2 className={SectionsScss['title']}>{downloadEbooks.title}</h2>
               <Link to={`/books/collection/${downloadEbooks.title}`}>
                 Vedi tutti <FaAngleRight />

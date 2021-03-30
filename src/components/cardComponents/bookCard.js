@@ -41,21 +41,23 @@ const CardBook = ({volumeInfo,id}) => {
   },[whishList, id, user])
 
   return (
-    <div className={`${CardScss['card']} col m-0 p-2 bookBtn`}>
-      <Link to={`/book/${id}`}>
-          <img src={links || defaultImage} alt={volumeInfo.title} />
-          <div>
-            <p className="m-0 lead">{volumeInfo.title}</p>
-            <p className="mb-0 text-primary">{authors || 'Sconosciuto'}</p>
-          </div>
-      </Link>
-      {
-        toggle ? (
-          <button onClick={RemoveItem} className="text-primary"><FaBookmark /></button>
-        ) : ( 
-          <button onClick={AddItem} className="text-primary"><FaRegBookmark /></button>
-        )
-      }
+    <div className={`${CardScss['card']} col m-0 p-0 bookBtn`}>
+      <div className="p-2">
+        <Link to={`/book/${id}`}>
+            <img src={links || defaultImage} alt={volumeInfo.title} />
+            <div>
+              <p className="m-0 lead">{volumeInfo.title}</p>
+              <p className="mb-0 text-primary">{authors || 'Sconosciuto'}</p>
+            </div>
+        </Link>
+        {
+          toggle ? (
+            <button onClick={RemoveItem} className="text-primary"><FaBookmark /></button>
+          ) : ( 
+            <button onClick={AddItem} className="text-primary"><FaRegBookmark /></button>
+          )
+        }
+      </div>
     </div>
   )
 }
