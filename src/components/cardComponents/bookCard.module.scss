@@ -2,26 +2,26 @@
   background-color: transparent;
   display: flex;
   justify-content: center;
-  height: 250px;
-  overflow: hidden;
   div{
     position: relative;
     a{
-      height: 100%;
+      box-shadow: 1px 2px 6px #000;
+      border-radius: 0.2rem 1rem 0.2rem 0.2rem;
+      overflow: hidden;
       display: flex;
       justify-content: center;
       align-items: center;
       flex-direction: column;
       img{
-        height: 162px;
+        height: 170px;
         width: 128px;
-        border-radius: 0.2rem 1rem 0.2rem 0.2rem;
-        box-shadow: 2px 3px 10px  black;
       }
       div{
+        position:absolute;
+        bottom: 0px;
+        z-index: 2;
         width: 128px;
-        bottom:0;
-        left:8px;
+        padding: 0px 4px;
         p{
           color: black;
           white-space: nowrap;
@@ -30,12 +30,24 @@
         }
       }
     }
+    a:after{
+      background: rgb(255,255,255);
+      background: linear-gradient(0deg, rgba(255,255,255,1) 0%, rgba(255,255,255,0) 100%, rgba(255,255,255,1) 100%);
+      position: absolute;
+      content: '';
+      top: 0;
+      left: 0;
+      height: 100%;
+      width: 100%;
+      border-radius: 0.1rem;
+      z-index: 1;
+    }
     button{
       background-color: transparent;
       position:absolute;
       height:auto;
       width:auto;
-      top: 10px;
+      top: -5px;
       left: 13px;
       z-index:2;
       svg{

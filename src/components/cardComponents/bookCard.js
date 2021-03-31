@@ -41,8 +41,8 @@ const CardBook = ({volumeInfo,id}) => {
   },[whishList, id, user])
 
   return (
-    <div className={`${CardScss['card']} col m-0 p-0 bookBtn`}>
-      <div className="p-2">
+    <div className={`${CardScss['card']} col m-0 mb-4 p-0 bookBtn`}>
+      <div className="">
         <Link to={`/book/${id}`}>
             <img src={links || defaultImage} alt={volumeInfo.title} />
             <div>
