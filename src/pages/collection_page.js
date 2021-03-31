@@ -28,7 +28,7 @@ const BooksCollection = () => {
   },[id,fetchBooks])
 
   return (
-    <main className="">
+    <main>
       <NavBar />
       <article className={`${CollectionScss['collection']} m-3`}>
         <Link to='/' className="d-inline-flex align-items-center">

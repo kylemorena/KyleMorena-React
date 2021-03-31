@@ -96,7 +96,7 @@ const AppProvider = ({ children }) => {
   const addWhish = (book) =>{
     const store = db.collection('users').doc(user.uid);
     store.update({
-      books: firebaseValue.arrayUnion(book.id)
+      books: firebaseValue.arrayUnion(book)
     }).then(()=>{
       setWhishList([...whishList,book])
     })

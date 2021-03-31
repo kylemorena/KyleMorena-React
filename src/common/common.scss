@@ -3,6 +3,7 @@ main{
   background-color:$white;
   font-family: 'Merriweather';
   article{
+    flex-grow: 1;
     h2{
       svg{
         background-color: theme-color("secondary");

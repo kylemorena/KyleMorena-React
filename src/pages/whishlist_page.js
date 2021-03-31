@@ -8,14 +8,14 @@ import BookCard from '../components/cardComponents/bookCard';
 const WhishList = () => {
   const {whishList} = useGlobalContext();
   return (
-    <main className="d-flex">
+    <main>
       <NavBar />
       <article className="m-3">
         <Link to='/' className="d-inline-flex align-items-center">
-          <FaAngleLeft /> Back to home
+          <FaAngleLeft/> Indietro
         </Link>
-        <h2 className="display-4">My WhishList</h2>
-        <div className="row row-cols-4 m-0 p-0">
+        <h2 className="mb-3">My WhishList</h2>
+        <div className="row row-cols-2 row-cols-sm-3 row-cols-md-5 row-cols-xl-6 m-0 p-0"> 
           {
             whishList.map((book)=>{
               return <BookCard key={book.id} {...book} />
