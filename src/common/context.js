@@ -96,15 +96,15 @@ const AppProvider = ({ children }) => {
   const addWhish = (book) =>{
     const store = db.collection('users').doc(user.uid);
     store.update({
-      books: firebaseValue.arrayUnion(book)
+      books: firebaseValue.arrayUnion(book.id)
     }).then(()=>{
       setWhishList([...whishList,book])
     })
   }
-  const removeWhish = async (book) =>{
-    const store = await db.collection('users').doc(user.uid);
+  const removeWhish = (book) =>{
+    const store = db.collection('users').doc(user.uid);
     store.update({
-      books: firebaseValue.arrayRemove(book)
+      books: firebaseValue.arrayRemove(book.id)
     })
     const newList = whishList.filter((line)=>line.id !== book.id)
     setWhishList(newList);

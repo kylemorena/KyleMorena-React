@@ -32,19 +32,16 @@
     }
     a:after{
       background: rgb(255,255,255);
-      background: linear-gradient(0deg, rgba(255,255,255,1) 0%, rgba(255,255,255,0) 100%, rgba(255,255,255,1) 100%);
+      background: linear-gradient(0deg, rgba(255,255,255,1) 0%, rgba(255,255,255,0) 60%, rgba(255,255,255,0) 100%);
       position: absolute;
       content: '';
-      top: 0;
-      left: 0;
       height: 100%;
       width: 100%;
-      border-radius: 0.1rem;
       z-index: 1;
     }
     a:hover::after{
       background: rgb(249,213,215);
-      background: linear-gradient(0deg, rgba(249,213,215,1) 0%, rgba(255,255,255,0) 100%, rgba(255,255,255,1) 100%);
+      background: linear-gradient(0deg, rgba(249,213,215,1) 0%, rgba(255,255,255,0) 60%, rgba(255,255,255,0) 100%);
     }
     button{
       background-color: transparent;

@@ -31,10 +31,10 @@ const Book = () => {
   },[id,getBookData])
 
   return (
-    <main className={DetailScss["detail"]}>
+    <main>
       <NavBar />
       <article className={`${DetailScss["cards"]} m-3`}>
-        <Link to='/' className="d-inline-flex align-items-center">
+        <Link to='/' className="d-inline-flex align-items-center mb-2">
           <FaAngleLeft /> Back home
         </Link>
           {

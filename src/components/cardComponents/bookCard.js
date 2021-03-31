@@ -14,14 +14,15 @@ const CardBook = ({volumeInfo,id}) => {
 
   const AddItem = () => {
     if(user){
-      addWhish({id,volumeInfo,addItem:!toggle});
+      addWhish({id,volumeInfo});
+      setToggle(!toggle);
     }else{
       setShowToast(true);
     };
   }
   const RemoveItem = () => {
     if(user){
-      removeWhish({id,volumeInfo,addItem:toggle});
+      removeWhish({id,volumeInfo});
       setToggle(!toggle);
     }else{
       setShowToast(true);
@@ -32,7 +33,7 @@ const CardBook = ({volumeInfo,id}) => {
     if(user){
       whishList.forEach(res=>{
         if(res.id===id){
-          setToggle(res.addItem);
+          setToggle(true);
         }
       })
     }else{

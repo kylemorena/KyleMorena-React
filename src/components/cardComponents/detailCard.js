@@ -33,7 +33,7 @@ const DetailCard = ({volumeInfo,id}) => {
     if(user){
       whishList.forEach(res=>{
         if(res.id===id){
-          setToggle(res.addItem);
+          setToggle(true);
         }
       })
     }else{
@@ -45,31 +45,35 @@ const DetailCard = ({volumeInfo,id}) => {
     <>
     {
       id!=='' ? (
-        <div className={DetailScss['detail']}>
-      <div className={DetailScss['img-thumbnail']}>
-        <img src={links || defaultImage} alt={volumeInfo.title} />
-        {
-        toggle ? (
-          <button onClick={RemoveItem} className="text-primary"><FaBookmark /></button>
-        ) : ( 
-          <button onClick={AddItem} className="text-primary"><FaRegBookmark /></button>
-        )
-      }
-      </div>
-      <div className={DetailScss['view-details']}>
-        <h1>{volumeInfo.title || 'Senza titolo'}</h1>
-        <p className="mb-0">
-          Autore: <span className="text-primary">{authors || 'Sconosciuto'}</span>
-        </p>
-        <p>
-          Casa Editrice: {volumeInfo.publisher ? <span className="text-primary">{volumeInfo.publisher}</span> : ''}
-        </p>
-        <p>
-          Descrizione <br/> 
-          <span className="text-info">{volumeInfo.description || 'Questo libro non ha una descrizione'}</span>
-        </p>
-      </div>
-    </div>
+        <div className={`${DetailScss['detail']}`}>
+          <div className="d-flex">
+            {/* Immagine con la whisList button  */}
+            <div className={`${DetailScss['img-thumbnail']} mr-3`}>
+              <img src={links || defaultImage} alt={volumeInfo.title} />
+              {
+                toggle ? (
+                  <button onClick={RemoveItem} className="text-primary"><FaBookmark /></button>
+                ) : ( 
+                  <button onClick={AddItem} className="text-primary"><FaRegBookmark /></button>
+                )
+              }
+            </div>
+            {/* Info sul libro */}
+            <div className={`${DetailScss['view-details']} pl-0`}>
+              <h1>{volumeInfo.title || 'Senza titolo'}</h1>
+              <p className="mb-0">
+                Autore: <span className="text-primary">{authors || 'Sconosciuto'}</span>
+              </p>
+              <p>
+                Casa Editrice: {volumeInfo.publisher ? <span className="text-primary">{volumeInfo.publisher}</span> : ''}
+              </p>
+            </div>
+          </div>
+          <div className={`${DetailScss['description']} pl-1 mt-0 mt-md-3 mt-lg-0 mt-xl-4`}>
+            <h2 className="mb-0">Descrizione</h2>
+            <p className="">{volumeInfo.description || 'Questo libro non ha una descrizione'}</p>
+          </div>
+        </div>
       ) : ( <Error404 />)
     }
     </>
