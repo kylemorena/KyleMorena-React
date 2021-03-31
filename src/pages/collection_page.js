@@ -35,7 +35,7 @@ const BooksCollection = () => {
           <FaAngleLeft/> Indietro
         </Link>
         <h2>{id}</h2>
-        <div className="row row-cols-3 m-0 p-0">
+        <div className="row row-cols-2 row-cols-sm-3 row-cols-md-5 row-cols-xl-6 m-0 p-0">
           {loading ? '' : 
             books.map((book)=>{
               return <BookCard key={book.id} {...book} />

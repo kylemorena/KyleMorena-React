@@ -2,7 +2,6 @@ import React, {useState,useEffect,useCallback} from 'react';
 import { useParams, Link } from 'react-router-dom';
 import axios from 'axios';
 import { FaAngleLeft } from "react-icons/fa";
-import DetailScss from './detail.module.scss';
 import {useGlobalContext} from '../common/context';
 import NavBar from '../components/navBar';
 import Sections from '../components/articleComponent/sections';
@@ -33,7 +32,7 @@ const Book = () => {
   return (
     <main>
       <NavBar />
-      <article className={`${DetailScss["cards"]} m-3`}>
+      <article className="m-3">
         <Link to='/' className="d-inline-flex align-items-center mb-2">
           <FaAngleLeft /> Back home
         </Link>

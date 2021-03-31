@@ -1,14 +1,16 @@
 import React from 'react'
 import illustration from '../../assets/Hero_illustration.png';
+import HeroScss from './hero.module.scss'
+
 
 const Hero = () => {
   return (
-    <div className="d-flex p-3 rounded-lg bg-secondary">
+    <div className={`${HeroScss['hero']} p-3 bg-secondary`}>
       <div>
-        <h2 className="display-4">Titolo molto lungo</h2>
-        <p className="lead">Cupidatat dolore veniam non irure consectetur et proident culpa ut pariatur. Occaecat dolore minim minim veniam. In fugiat eu sunt fugiat laborum laborum minim pariatur. Cupidatat ad id ipsum aliquip adipisicing ea est mollit fugiat incididunt consectetur dolor officia.</p>
+        <h2>Titolo molto lungo</h2>
+        <p>Cupidatat dolore veniam non irure consectetur et proident culpa ut pariatur. Occaecat dolore minim minim veniam. In fugiat eu sunt fugiat laborum laborum minim pariatur. Cupidatat ad id ipsum aliquip adipisicing ea est mollit fugiat incididunt consectetur dolor officia.</p>
       </div>
-      <img src={illustration} alt="" height="30%" width="30%"/>
+      <img src={illustration} alt="hero"/>
     </div>
   )
 }

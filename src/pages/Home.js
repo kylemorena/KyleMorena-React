@@ -1,14 +1,13 @@
 import React from 'react'
-import HomeScss from './home.module.scss';
 import NavBar from '../components/navBar';
 import Hero from '../components/articleComponent/hero';
 import Sections from '../components/articleComponent/sections';
 
 const Home = () => {
   return (
-    <main className={HomeScss["home"]}>
+    <main>
       <NavBar />
-      <article className={`${HomeScss["Home"]} m-3`}>
+      <article className="m-3">
           <Hero />
           <Sections />
       </article>
