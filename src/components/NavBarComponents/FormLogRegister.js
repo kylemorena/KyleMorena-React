@@ -26,7 +26,7 @@ const FormLogRegister = () => {
     <>
     <Form className="text-white mt-3">
       <Form.Group controlId="formBasicEmail">
-        <Form.Label>Email address</Form.Label>
+        <Form.Label>Email</Form.Label>
         <Form.Control 
           type="email" 
           placeholder="Enter email" 
@@ -56,16 +56,16 @@ const FormLogRegister = () => {
       {
         hasAccount ? (
           <>
-            <Button onClick={handleLogin} className="btn">Sign in</Button>
+            <Button onClick={handleLogin} className="btn">Registrati</Button>
             <p>
-              Don't have an account? <span onClick={()=>setHasAccount(!hasAccount)}>Sing up</span>
+              Non hai un account? <span onClick={()=>setHasAccount(!hasAccount)}>Registrati</span>
             </p>
           </>
         ) : (
           <>
-            <Button onClick={handleSignup} className="btn">Sign up</Button>
+            <Button onClick={handleSignup} className="btn">Accedi</Button>
             <p>
-              Have an account? <span className="border-bottom" onClick={()=>setHasAccount(!hasAccount)}>Sing in</span>
+              Hai già un account? <span className="border-bottom" onClick={()=>setHasAccount(!hasAccount)}>Accedi</span>
             </p>
           </>
         )

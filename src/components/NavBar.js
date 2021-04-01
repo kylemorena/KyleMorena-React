@@ -21,12 +21,14 @@ const NavBar = () => {
     if(sideBar.current && !sideBar.current.contains(e.target)){
       setIsSidebarOpen(false);
     }
+    //#region alternative solution to close sidebar
     // else if (sideBar.current && sideBar.current.contains(e.target) && e.target.className==="p-1 text-info bookBtn"){
     //   setTimeout(()=>{
     //     setIsSidebarOpen(false)
     //     },300
     //   )
     // }
+    //#endregion
   };
 
   useEffect(()=>{
