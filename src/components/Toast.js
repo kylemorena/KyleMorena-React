@@ -44,20 +44,27 @@ const ModalComponent = () => {
   return (
     <>
       {
-        <Toast 
-          onClose={handleClose} 
-          show={showToast} 
-          delay={3000} 
-          ref={toast}
-          autohide
-          className={`${ToastScss['Toast']} p-2 m-0 bg-danger`}
-        >
-          <div className="d-flex justify-content-around">
-            <Button onClick={handleLogin}>Accedi</Button>
-            <Button onClick={handleSingup}>Registrati</Button>
-            <Button onClick={handleClose}>X</Button>
+        setShowToast? (
+          <div className={ToastScss['overlay']}>
+            <Toast 
+            onClose={handleClose} 
+            show={showToast} 
+            delay={3000}
+            autohide
+            ref={toast}
+            className={`${ToastScss['Toast']} p-2 m-0 bg-danger`}
+            >
+              <div className="d-flex justify-content-around">
+                <Button onClick={handleLogin}>Accedi</Button>
+                <Button onClick={handleSingup}>Registrati</Button>
+                <Button onClick={handleClose}>X</Button>
+              </div>
+            </Toast>
           </div>
-        </Toast>
+        ) : (
+          null
+        )
+        
       }
     </>
   );

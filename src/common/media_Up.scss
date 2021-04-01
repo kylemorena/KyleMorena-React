@@ -8,6 +8,9 @@
       max-width: 25vw;
       min-width: 25vw;
       min-height: 100vh;
+      a.navbar-brand{
+        margin-top: 16px;
+      }
       aside{
         display: flex;
         flex-direction: column;

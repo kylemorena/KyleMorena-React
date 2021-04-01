@@ -19,7 +19,7 @@ const NavBar = () => {
   };
 
   const handleClickOutside = (e) => {
-    if(sideBar.current && !sideBar.current.contains(e.target)){
+    if(sideBar.current && !sideBar.current.contains(e.target) && e.target.className!=='bookBtn'){
       setIsSidebarOpen(false);
     }
   };
@@ -36,7 +36,7 @@ const NavBar = () => {
       bg="primary" 
       variant="dark" 
       className={isSidebarOpen ? `${NavBarScss['navbar']} show-sidebar` : `${NavBarScss['navbar']} hide-sidebar`}>
-      <Navbar.Brand href="/" className={`${NavBarScss['logo']} display-4`}>Bookssss</Navbar.Brand>
+      <Navbar.Brand href="/" className={`${NavBarScss['logo']} display-4`}>BookMarks</Navbar.Brand>
       <aside ref={sideBar}>
         {
           user ? (

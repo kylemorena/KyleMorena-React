@@ -21,7 +21,7 @@ const Autocomplete = ({books}) => {
                 </Link>
               )
             })
-          ) : 'Nessun Risultato'
+          ) : (<div className="p-1">Nessun Risultato</div>)
         }
     </div>
   )

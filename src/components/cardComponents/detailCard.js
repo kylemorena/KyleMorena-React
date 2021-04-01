@@ -12,7 +12,6 @@ const DetailCard = ({volumeInfo,id}) => {
   const [toggle,setToggle] = useState(false)
   const links = volumeInfo.imageLinks && volumeInfo.imageLinks.thumbnail;
   const authors = volumeInfo.authors && volumeInfo.authors.toString();
-  console.log(volumeInfo.description);
 
   const AddItem = () => {
     if(user){
