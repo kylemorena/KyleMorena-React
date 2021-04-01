@@ -19,8 +19,13 @@ const NavBar = () => {
   };
 
   const handleClickOutside = (e) => {
-    if(sideBar.current && !sideBar.current.contains(e.target) && e.target.className!=='bookBtn'){
+    if(sideBar.current && !sideBar.current.contains(e.target)){
       setIsSidebarOpen(false);
+    }else if (sideBar.current && sideBar.current.contains(e.target) && e.target.className==="p-1 text-info bookBtn"){
+      setTimeout(()=>{
+        setIsSidebarOpen(false)
+        },100
+      )
     }
   };
 
