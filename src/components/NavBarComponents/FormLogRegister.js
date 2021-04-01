@@ -29,7 +29,7 @@ const FormLogRegister = () => {
         <Form.Label>Email</Form.Label>
         <Form.Control 
           type="email" 
-          placeholder="Enter email" 
+          placeholder="Inserisci l'email" 
           autoFocus 
           required 
           ref={inputEmail}
@@ -44,7 +44,7 @@ const FormLogRegister = () => {
         <Form.Label>Password</Form.Label>
         <Form.Control 
           type="password" 
-          placeholder="Password" 
+          placeholder="Inserisci la password" 
           required
           value={password}
           onChange={(e)=>setPassword(e.target.value)}
