@@ -9,7 +9,7 @@ const ToastComponent = () => {
 
   const handleClose = () => {
     setShowToast(false)
-    document.body.style.overflow="auto"
+    document.body.classList.remove("no-scroll")
   };
 
   //#region Handle login/SignUp
@@ -48,8 +48,8 @@ const ToastComponent = () => {
   return (
     <>
       {
-        setShowToast? (
-          document.body.style.overflow="hidden",
+        setShowToast ? (
+          document.body.classList.add("no-scroll"),
           <div className={ToastScss['overlay']}>
             <Toast 
             onClose={handleClose} 
