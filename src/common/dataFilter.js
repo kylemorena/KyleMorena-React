@@ -2,13 +2,13 @@ export const dataFilter = [
   {
     id: 1,
     title: 'free-ebooks',
-    filter: 'isbn&filter=free-ebooks&orderBy=relevance',
+    filter: 'isbn&filter=ebooks&langRestrict=it&maxAllowedMaturityRating=mature&orderBy=newest',
     books: []
   },
   {
     id: 2,
     title: 'paid-ebooks',
-    filter: 'isbn&filter=paid-ebooks&orderBy=relevance',
+    filter: 'isbn&filter=paid-ebooks&langRestrict=it&orderBy=relevance',
     books: []
   },
   {

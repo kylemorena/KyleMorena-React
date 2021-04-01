@@ -32,7 +32,7 @@
     overflow: hidden;
     width: 100%;
     h1{
-      font-size: 1.1rem;
+      font-size: 1.2rem;
       margin-bottom: 0;
       font-weight: 900;
     }
@@ -49,6 +49,11 @@
       span{
         font-size: 1rem;
       }
+    }
+  }
+  div.description{
+    p{
+      line-height: 1.2rem;
     }
   }
 }
@@ -95,6 +100,7 @@
       }
       p{
         font-size: 1.5rem;
+        line-height: 1.5rem;
       }
     }
   }
@@ -115,6 +121,7 @@
       }
       p{
         font-size: 1.8rem;
+        line-height: 1.8rem;
       }
     }
   }

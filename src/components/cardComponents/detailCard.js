@@ -12,6 +12,7 @@ const DetailCard = ({volumeInfo,id}) => {
   const [toggle,setToggle] = useState(false)
   const links = volumeInfo.imageLinks && volumeInfo.imageLinks.thumbnail;
   const authors = volumeInfo.authors && volumeInfo.authors.toString();
+  console.log(volumeInfo.description);
 
   const AddItem = () => {
     if(user){
@@ -69,9 +70,9 @@ const DetailCard = ({volumeInfo,id}) => {
               </p>
             </div>
           </div>
-          <div className={`${DetailScss['description']} pl-1 mt-0 mt-md-3 mt-lg-0 mt-xl-4`}>
-            <h2 className="mb-0">Descrizione</h2>
-            <p className="">{volumeInfo.description || 'Questo libro non ha una descrizione'}</p>
+          <div className={`${DetailScss['description']} pl-1 mt-3`}>
+            <h2 className="font-weight-bold">Descrizione</h2>
+            <div dangerouslySetInnerHTML={{ __html: volumeInfo.description || 'Questo libro non ha una descrizione' }} />
           </div>
         </div>
       ) : ( <Error404 />)

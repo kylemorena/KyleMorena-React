@@ -13,7 +13,7 @@ const SearchBar = () => {
 
   const handleChange = async (e) => {
     if(e.target.value!==''){
-      const response = await axios.get(`https://www.googleapis.com/books/v1/volumes?q=${e.target.value}&key=${apiKey}&maxResults=5`);
+      const response = await axios.get(`https://www.googleapis.com/books/v1/volumes?q=${e.target.value}&langRestrict=it&key=${apiKey}&maxResults=5`);
       dispatch(Searching(response.data.items))
     }
     if(e.target.value===''){
