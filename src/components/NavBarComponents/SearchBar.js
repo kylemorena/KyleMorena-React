@@ -1,4 +1,4 @@
-import React,{useEffect,useRef} from 'react';
+import React,{useEffect,useState,useRef} from 'react';
 import {Form, FormControl } from 'react-bootstrap';
 import { FaSistrix } from "react-icons/fa";
 import axios from 'axios';
@@ -6,15 +6,21 @@ import SearchBarSCSS from './searchBar.module.scss';
 import { useGlobalContext } from '../../common/context';
 import Autocomplete from './autocomplete';
 
-
 const SearchBar = () => {
   const { apiKey, data, dispatch, Searching, ResetData } = useGlobalContext();
   const searchBar = useRef(null)
+  const [error,setError] = useState(false);
 
   const handleChange = async (e) => {
     if(e.target.value!==''){
-      const response = await axios.get(`https://www.googleapis.com/books/v1/volumes?q=${e.target.value}&langRestrict=it&key=${apiKey}&maxResults=5`);
-      dispatch(Searching(response.data.items))
+      try {
+        const response = await axios.get(`https://www.googleapis.com/books/v1/volumes?q=${e.target.value}&langRestrict=it&key=${apiKey}&maxResults=5`);
+        dispatch(Searching(response.data.items))
+        setError(false)
+      } catch (error) {
+        setError(true)
+      }
+      
     }
     if(e.target.value===''){
       dispatch(ResetData([]));
@@ -47,7 +53,11 @@ const SearchBar = () => {
           placeholder="Search..."
           onChange={handleChange}
         />
-        {data.isOpen ? <Autocomplete books={data.books}/> : null}
+        {
+          error ? (<div>Riprova più tardì</div>) : (
+            data.isOpen && <Autocomplete books={data.books}/>
+          )
+        }
       </Form>
     </>
   )

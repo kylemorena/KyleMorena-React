@@ -16,9 +16,11 @@ const Autocomplete = ({books}) => {
           books !==undefined ? (
             books.map(book=>{
               return(
+                book.volumeInfo.title ? 
                 <Link to={`/book/${book.id}`} key={book.id} onClick={handleClick}>
                   <div className="p-1 text-info bookBtn">{book.volumeInfo.title}</div>
-                </Link>
+                </Link> : 
+                <div key={book.id}>non ho trovato il titolo del libro'</div>
               )
             })
           ) : (<div className="p-1">Nessun Risultato</div>)
