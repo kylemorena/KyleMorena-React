@@ -31,7 +31,7 @@ const SearchBar = () => {
   }
 
   const handleClickOutside = (e) => {
-    if(searchBar.current && !searchBar.current.contains(e.target) && e.target.className!=='bookBtn'){
+    if(searchBar.current && !searchBar.current.contains(e.target) && e.target.className!=='p-1 text-info bookBtn'){
       dispatch(ResetData([]));
     }
   }

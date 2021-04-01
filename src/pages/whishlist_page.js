@@ -1,4 +1,4 @@
-import React from 'react';
+import React,{useEffect} from 'react';
 import {Link} from 'react-router-dom';
 import { FaAngleLeft } from "react-icons/fa";
 import {useGlobalContext} from '../common/context';
@@ -6,7 +6,13 @@ import NavBar from '../components/navBar';
 import BookCard from '../components/cardComponents/bookCard';
 
 const WhishList = () => {
-  const {whishList} = useGlobalContext();
+  const {whishList,setIsSidebarOpen} = useGlobalContext();
+
+  useEffect(()=>{
+    console.log('prova')
+    setIsSidebarOpen(false)
+  },[setIsSidebarOpen])
+  
   return (
     <main>
       <NavBar />

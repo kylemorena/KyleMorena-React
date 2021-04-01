@@ -1,4 +1,4 @@
-import React,{useState,useEffect,useRef} from 'react';
+import React,{useEffect,useRef} from 'react';
 import {Navbar,Button} from 'react-bootstrap'
 import { FaSignOutAlt,FaBars } from "react-icons/fa";
 
@@ -10,8 +10,7 @@ import WhishButton from './navbarComponents/whishButton';
 import Footer from './navbarComponents/footer';
 
 const NavBar = () => {
-  const { user, handleLogout } = useGlobalContext();
-  const [isSidebarOpen, setIsSidebarOpen] = useState(false);
+  const { user, handleLogout,isSidebarOpen,setIsSidebarOpen } = useGlobalContext();
   const sideBar = useRef(null)
 
   const openSidebar = () => {
@@ -21,12 +20,13 @@ const NavBar = () => {
   const handleClickOutside = (e) => {
     if(sideBar.current && !sideBar.current.contains(e.target)){
       setIsSidebarOpen(false);
-    }else if (sideBar.current && sideBar.current.contains(e.target) && e.target.className==="p-1 text-info bookBtn"){
-      setTimeout(()=>{
-        setIsSidebarOpen(false)
-        },100
-      )
     }
+    // else if (sideBar.current && sideBar.current.contains(e.target) && e.target.className==="p-1 text-info bookBtn"){
+    //   setTimeout(()=>{
+    //     setIsSidebarOpen(false)
+    //     },300
+    //   )
+    // }
   };
 
   useEffect(()=>{

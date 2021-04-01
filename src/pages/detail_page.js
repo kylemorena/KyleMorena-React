@@ -9,11 +9,12 @@ import DetailCard from '../components/cardComponents/detailCard';
 import Loading from '../components/articleComponent/loading';
 
 const Book = () => {
-  const {bookData,setBookData} = useGlobalContext();
+  const {bookData,setBookData,setIsSidebarOpen} = useGlobalContext();
   const { id } = useParams()
   const [loading, setLoading] = useState(true)
 
   const getBookData = useCallback(async()=>{
+    setIsSidebarOpen(false);
     setLoading(true);
     try{
       const response = await axios.get(`https://www.googleapis.com/books/v1/volumes/${id}`);
@@ -23,7 +24,7 @@ const Book = () => {
       console.log(error)
       setLoading(false)
     }
-  },[id, setBookData])
+  },[id, setBookData,setIsSidebarOpen])
 
   useEffect(()=>{
     getBookData()

@@ -23,6 +23,8 @@ const AppProvider = ({ children }) => {
   const [inputEmail,setInputEmail] = useState({});
   const [showToast, setShowToast] = useState(false);
   const [bookData, setBookData] = useState({})
+  const [isSidebarOpen, setIsSidebarOpen] = useState(false);
+
 
 
   //#region HANDLE LOGIN/SIGNUP & LOGOUT
@@ -164,6 +166,8 @@ const AppProvider = ({ children }) => {
         setShowToast,
         bookData, 
         setBookData,
+        isSidebarOpen,
+        setIsSidebarOpen
       }}>
       {children}
     </AppContext.Provider>
