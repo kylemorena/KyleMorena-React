@@ -12,12 +12,17 @@ const CardBook = ({volumeInfo,id}) => {
   const links = volumeInfo.imageLinks && volumeInfo.imageLinks.thumbnail;
   const authors = volumeInfo.authors && volumeInfo.authors.toString();
 
+  // function noScroll() {
+  //   document.body.style.overflow="hidden";
+  // }
+
   const AddItem = () => {
     if(user){
       addWhish({id,volumeInfo});
       setToggle(!toggle);
     }else{
       setShowToast(true);
+      // noScroll()
     };
   }
   const RemoveItem = () => {
@@ -26,6 +31,7 @@ const CardBook = ({volumeInfo,id}) => {
       setToggle(!toggle);
     }else{
       setShowToast(true);
+      // noScroll()
     };
   }
 

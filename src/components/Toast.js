@@ -3,13 +3,16 @@ import {Toast,Button} from 'react-bootstrap';
 import ToastScss from './toast.module.scss';
 import {useGlobalContext} from '../common/context';
 
-const ModalComponent = () => {
+const ToastComponent = () => {
   const {showToast,setShowToast,inputEmail,setHasAccount,} = useGlobalContext();
   const toast = useRef(null);
 
   const handleClose = () => {
     setShowToast(false)
+    document.body.style.overflow="auto"
   };
+
+  //#region Handle login/SignUp
   const handleLogin = () => {
     setShowToast(false)
     setHasAccount(true)
@@ -28,12 +31,13 @@ const ModalComponent = () => {
     });
     inputEmail.current.focus();
   };
+  //#endregion
+
   const handleClickOutside = (e) => {
     if(toast.current && !toast.current.contains(e.target) && e.target.className!=='toast'){
       handleClose();
     }
   }
-
   useEffect(()=>{
     document.addEventListener('mousedown', handleClickOutside);
     return () => {
@@ -45,12 +49,11 @@ const ModalComponent = () => {
     <>
       {
         setShowToast? (
+          document.body.style.overflow="hidden",
           <div className={ToastScss['overlay']}>
             <Toast 
             onClose={handleClose} 
             show={showToast} 
-            delay={3000}
-            autohide
             ref={toast}
             className={`${ToastScss['Toast']} p-2 m-0 bg-danger`}
             >
@@ -70,4 +73,4 @@ const ModalComponent = () => {
   );
 }
 
-export default ModalComponent;
+export default ToastComponent;

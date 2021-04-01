@@ -25,8 +25,6 @@ const AppProvider = ({ children }) => {
   const [bookData, setBookData] = useState({})
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
 
-
-
   //#region HANDLE LOGIN/SIGNUP & LOGOUT
   const clearInputs = () => {
     setEmail('');
