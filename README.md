@@ -27,7 +27,8 @@
 - Google Books APIs: https://developers.google.com/books/docs/overview
 - Account Firebase: https://console.firebase.google.com.
    - Una volta registrato crea un nuovo progetto.
-   - Crea un'app webb in modo da avere i dati di firebaseConfig. 
+   - Aggiungi firebase alla tua app Web e aprilo(impostazioni progetto).
+   - In fondo alla pagina troverai "Configurazione" con tutti le chiavi.
    
 ---
 ### :arrow_down: Installazione:
@@ -37,7 +38,8 @@
    ```
 2. Rinominare .env.example in .env
    ```sh
-   mettere al posto di Your_API_token le relative API Token
+   All'interno di REACT_APP_API_KEY="La tua chiave api di Google Books APIs"
+   Per ogni REACT_APP_FIREBASE_="La chiave corrispondente trovata in Firebase SDK snippet - Configurazione"
    ```
 3. Installare NPM packages e tutte le Dependencies 
    ```sh
