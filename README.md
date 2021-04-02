@@ -1,70 +1,65 @@
-# Getting Started with Create React App
+### Ciao, Sono Kyle 👋 benvenuto nel mio progetto BOOKMARKS 😃
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+### :technologist: About Me
+- 📚 Al momento sto studiando su start2impact
+- 🌱 Mi sto focalizzando su JavaScript.
+- 🥅 Obiettivo 2021: lavorare come front-end developer.
+- ⚡ Fun fact: Sono un appassionato di sport ma mi piace anche il "bingewatch".
 
-## Available Scripts
+---
+### :bulb: Progetto BookMarks
+- è un'applicazione web che permette all'utente di cercare un libro presente nel database di google books api.
+- è un progetto per start2impact con l'intenzione di mostrare le competenze di React Js Acquisite.
+- [BookStore-km](https://bookstore-km.web.app/) questo è il sito online.
 
-In the project directory, you can run:
+---
+### :hammer_and_wrench: Linguaggi e Tools usati per il progetto:
+<code><img height="40" src="https://cdn.jsdelivr.net/npm/programming-languages-logos@0.0.3/src/html/html_128x128.png"></code>
+<code><img height="40" src="https://raw.githubusercontent.com/devicons/devicon/master/icons/css3/css3-original-wordmark.svg"></code>
+<code><img height="40" src="https://raw.githubusercontent.com/devicons/devicon/master/icons/bootstrap/bootstrap-plain.svg"></code>
+<code><img height="40" src="https://raw.githubusercontent.com/devicons/devicon/master/icons/sass/sass-original.svg"></code>
+<code><img height="40" src="https://raw.githubusercontent.com/devicons/devicon/master/icons/javascript/javascript-plain.svg"></code>
+<code><img height="40" src="https://raw.githubusercontent.com/devicons/devicon/master/icons/webpack/webpack-plain.svg"></code>
 
-### `yarn start`
+---
+### :white_check_mark: Prerequisiti
+- Node.js: https://nodejs.org/it/
+- Air Quality Open Data Platform API Token: https://aqicn.org/data-platform/token/#/
+- Mapbox access token: https://account.mapbox.com/access-tokens/
+   - Se non sei registrato ti manderanno l'email con il token di accesso API
+   
+---
+### :arrow_down: Installazione:
+1. Clonare il repository
+   ```sh
+   git clone https://github.com/kylemorena/KyleMorena-JS-Advanced.git
+   ```
+2. Rinominare .env.example in .env
+   ```sh
+   mettere al posto di Your_API_token le relative API Token
+   ```
+3. Installare NPM packages e tutte le Dependencies 
+   ```sh
+   npm install 
+   ```
+4. Per buildare basta eseguire il comando:
+   ```sh
+   npm start | npm run build per aprire index.html
+   ```
+   
+---
+### 🤝 Connect with me:
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+[<img align="left" alt="kyle-morena | LinkedIn" width="22px" src="https://cdn.jsdelivr.net/npm/simple-icons@v3/icons/linkedin.svg"/>][linkedin]
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+[<img align="left" alt="kyle-morena | Gmail" width="22px" src="https://cdn.jsdelivr.net/npm/simple-icons@v3/icons/gmail.svg"/>][gmail]
 
-### `yarn test`
+<br>
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+---
 
-### `yarn build`
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+[linkedin]: https://www.linkedin.com/in/kyle-denver-morena-016721160/
+[gmail]: https://mail.google.com/mail/u/0/?tab=um#inbox?compose=DmwnWrRnXVTlhMGndfgzgCvWlkMWjLSrwckLsqGpHktVNfBdkdrtsJptxblRJVNnCkPSCKJfFbPL
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `yarn eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `yarn build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+⭐️ From [Kyle Morena](https://github.com/kylemorena)
