@@ -24,9 +24,10 @@
 ---
 ### :white_check_mark: Prerequisiti
 - Node.js: https://nodejs.org/it/
-- Air Quality Open Data Platform API Token: https://aqicn.org/data-platform/token/#/
-- Mapbox access token: https://account.mapbox.com/access-tokens/
-   - Se non sei registrato ti manderanno l'email con il token di accesso API
+- Google Books APIs: https://developers.google.com/books/docs/overview
+- Account Firebase: https://console.firebase.google.com.
+   - Una volta registrato crea un nuovo progetto.
+   - Crea un'app webb in modo da avere i dati di firebaseConfig. 
    
 ---
 ### :arrow_down: Installazione:
