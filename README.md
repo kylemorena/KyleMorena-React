@@ -37,8 +37,8 @@
    git clone https://github.com/kylemorena/KyleMorena-JS-Advanced.git
    ```
 2. Rinominare .env.example in .env
-   ```sh
    Dentro al file dovrai sostituire il valore delle variabili come nell'esempio sotto:
+   ```sh
    REACT_APP_API_KEY="La tua chiave api di Google Books APIs"
    REACT_APP_FIREBASE_="La chiave corrispondente trovata in Firebase SDK snippet - Configurazione"
    ```
