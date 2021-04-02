@@ -1,7 +1,9 @@
 //Toast Open
-body,#root {
-  margin: 0;
-  height: 100%;
+html,
+body,
+#root {
+  height: 100vh;
+  position: relative;
   overflow-y: auto;
 }
 .no-scroll {

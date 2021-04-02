@@ -56,14 +56,14 @@ const FormLogRegister = () => {
       {
         hasAccount ? (
           <>
-            <Button onClick={handleLogin} className="btn">Accedi</Button>
+            <Button onClick={handleLogin} className="btn mb-1">Accedi</Button>
             <p>
               Non hai un account? <span onClick={()=>setHasAccount(!hasAccount)}>Registrati</span>
             </p>
           </>
         ) : (
           <>
-            <Button onClick={handleSignup} className="btn">Registrati</Button>
+            <Button onClick={handleSignup} className="btn mb-1">Registrati</Button>
             <p>
               Hai già un account? <span className="border-bottom" onClick={()=>setHasAccount(!hasAccount)}>Accedi</span>
             </p>
