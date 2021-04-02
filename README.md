@@ -45,9 +45,9 @@
    ```sh
    npm install 
    ```
-4. Per buildare basta eseguire il comando:
+4. Per far partire la web app digita i comandi sotto:
    ```sh
-   npm start | npm run build per aprire index.html
+   npm/yarn start | npm run build / yarn build per buildarlo
    ```
    
 ---
