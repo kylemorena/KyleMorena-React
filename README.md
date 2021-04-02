@@ -62,7 +62,7 @@
 ---
 
 
-[linkedin]: https://www.linkedin.com/in/kyle-denver-morena-016721160/
+[linkedin]: www.linkedin.com/in/kyledenver-morena
 [gmail]: https://mail.google.com/mail/u/0/?tab=um#inbox?compose=DmwnWrRnXVTlhMGndfgzgCvWlkMWjLSrwckLsqGpHktVNfBdkdrtsJptxblRJVNnCkPSCKJfFbPL
 
 ⭐️ From [Kyle Morena](https://github.com/kylemorena)
