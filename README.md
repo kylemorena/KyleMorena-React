@@ -38,8 +38,8 @@
    ```
 2. Rinominare .env.example in .env
    ```sh
-   All'interno di REACT_APP_API_KEY="La tua chiave api di Google Books APIs"
-   Per ogni REACT_APP_FIREBASE_="La chiave corrispondente trovata in Firebase SDK snippet - Configurazione"
+   REACT_APP_API_KEY="La tua chiave api di Google Books APIs"
+   REACT_APP_FIREBASE_="La chiave corrispondente trovata in Firebase SDK snippet - Configurazione"
    ```
 3. Installare NPM packages e tutte le Dependencies 
    ```sh
