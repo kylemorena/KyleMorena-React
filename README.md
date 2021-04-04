@@ -2,7 +2,7 @@
 
 ### :technologist: About Me
 - 📚 Al momento sto studiando su start2impact
-- 🌱 Mi sto focalizzando su JavaScript.
+- 🌱 Mi sto focalizzando su React Js.
 - 🥅 Obiettivo 2021: lavorare come front-end developer.
 - ⚡ Fun fact: Sono un appassionato di sport ma mi piace anche il "bingewatch".
 
