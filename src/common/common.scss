@@ -10,13 +10,15 @@ body,
   overflow: hidden;
 }
 
-//Custom scss
+//#region Main general style
 main{
   background-color:$white;
   font-family: 'Merriweather';
   article{
     flex-grow: 1;
+    //sections
     h2{
+      margin: 0;
       svg{
         background-color: theme-color("secondary");
         color:theme-color("primary");
@@ -24,7 +26,9 @@ main{
     }
   }
 }
-//#region NAVBAR
+//#endregion
+
+//#region NAVBAR general style
 nav{
   font-family: 'Lato';
   button.btn{

@@ -4,6 +4,7 @@ import {Searching,ResetData} from '../actions';
 import {initApp,db,firebaseValue} from './firebaseConfig';
 
 const apiKey = process.env.REACT_APP_API_KEY;
+
 const AppContext = React.createContext()
 
 const defaultState = {
@@ -30,7 +31,6 @@ const AppProvider = ({ children }) => {
     setEmail('');
     setPassword('');
   }
-
   const clearErrors = () => {
     setEmailError('');
     setPasswordError('');
@@ -57,7 +57,6 @@ const AppProvider = ({ children }) => {
         }
       })
   };
-  
   const handleSignup = (e) => {
     e.preventDefault();
     clearErrors();
@@ -85,12 +84,11 @@ const AppProvider = ({ children }) => {
         }
       })
   };
-  
   const handleLogout = () => {
     initApp.auth().signOut();
     setWhishList([]);
   };
-  //#endregion
+  //#endregion HANDLE LOGIN/SIGNUP & LOGOUT
 
   //#region HANDLE WISHLIST
   const addWhish = (book) =>{
@@ -114,6 +112,7 @@ const AppProvider = ({ children }) => {
 
   useEffect(()=>{
     const authListener = () => {
+      //User State log in or log out
       initApp.auth().onAuthStateChanged((user)=>{
         if(user){
           db.collection('users').doc(user.uid).get().then((res)=>{
@@ -172,7 +171,7 @@ const AppProvider = ({ children }) => {
   )
 }
 
-// Export all props of AppContext
+// Export all props of AppContext value
 export const useGlobalContext = () => {
   return useContext(AppContext)
 }
