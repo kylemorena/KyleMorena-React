@@ -10,7 +10,7 @@
 ### :bulb: Progetto BookMarks
 - è un'applicazione web che permette all'utente di cercare un libro presente nel database di google books api.
 - è un progetto per start2impact con l'intenzione di mostrare le competenze di React Js Acquisite.
-- [Book-Marks](https://book-marks.web.app/) questo è il sito online.
+- [Book-Marks](https://book-marks.web.app/) link al sito.
 
 ---
 ### :hammer_and_wrench: Linguaggi e Tools usati per il progetto:
