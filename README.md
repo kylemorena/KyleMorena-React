@@ -30,10 +30,10 @@
 - Account Firebase: https://console.firebase.google.com.
    - Registrati e crea un nuovo progetto.
    - Aggiungi firebase alla tua app Web e aprilo(impostazioni progetto).
-   - Crea Authentication e Firestore
    - In fondo alla pagina troverai "Configurazione" con tutti le chiavi.
+   - Crea Authentication e Firestore
    - Ora bisogna abilitare l'autenticazione di email/password che si trova in "Authentication"
-   - Infine dovrai attivare Google Cloud Firestore Api come hai fatto per Books Api.
+   - Infine su Firestore in Regole dovrai modificare "allow read, write: if false;" in allow read, write: if request.auth != null;
    
 ---
 ### :arrow_down: Installazione:
