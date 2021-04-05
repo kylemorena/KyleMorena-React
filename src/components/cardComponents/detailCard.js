@@ -4,7 +4,7 @@ import { FaBookmark,FaRegBookmark } from "react-icons/fa";
 import {useGlobalContext} from '../../common/context';
 import DetailScss from './detailCard.module.scss';
 import defaultImage from '../../assets/KM_logo.svg'
-import Error404 from '../../common/Error_404';
+import Error404 from '../../common/error_404';
 
 
 const DetailCard = ({volumeInfo,id}) => {

@@ -7,7 +7,7 @@ import Loading from './loading';
 import {dataFilter} from '../../common/dataFilter';
 import {useGlobalContext} from '../../common/context';
 import BookCard from '../cardComponents/bookCard';
-import Error from '../../common/Error_404';
+import Error from '../../common/error_404';
 
 const CardsGroup = () => {
   const {apiKey,bookData} = useGlobalContext();

@@ -3,7 +3,7 @@ import Reducer from '../reducers';
 import {Searching,ResetData} from '../actions';
 import {initApp,db,firebaseValue} from './firebaseConfig';
 
-const apiKey = process.env.REACT_APP_API_KEY;
+const apiKey = process.env.REACT_APP_BOOKS_API;
 
 const AppContext = React.createContext()
 
