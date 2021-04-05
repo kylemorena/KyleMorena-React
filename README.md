@@ -28,9 +28,9 @@
    - Crea la chiave Api (+ Credenziali) 
    - Una volta ottenuto la chiave, bisogna abilitare Books API
 - Account Firebase: https://console.firebase.google.com.
-   - Una volta registrato crea un nuovo progetto.
-   - Crea Authentication e Firestore
+   - Registrati e crea un nuovo progetto.
    - Aggiungi firebase alla tua app Web e aprilo(impostazioni progetto).
+   - Crea Authentication e Firestore
    - In fondo alla pagina troverai "Configurazione" con tutti le chiavi.
    - Ora bisogna abilitare l'autenticazione di email/password che si trova in "Authentication"
    - Infine dovrai attivare Google Cloud Firestore Api come hai fatto per Books Api.
