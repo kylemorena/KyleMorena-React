@@ -6,7 +6,7 @@ import CollectionScss from './collection.module.scss';
 import BookCard from '../components/cardComponents/bookCard';
 import { dataFilter } from '../common/dataFilter';
 import NavBar from '../components/navBar';
-import Error from '../common/Error_404';
+import Error from '../common/error_404';
 import Loading from '../components/articleComponent/loading';
 
 const BooksCollection = () => {
