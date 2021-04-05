@@ -34,7 +34,7 @@
 ### :arrow_down: Installazione:
 1. Clonare il repository
    ```sh
-   git clone git@github.com:kylemorena/KyleMorena-React.git
+   https://github.com/kylemorena/KyleMorena-React.git
    ```
 2. Rinominare .env.example in .env e cambiare il valore delle variabili
    ```sh
