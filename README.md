@@ -25,11 +25,13 @@
 ### :white_check_mark: Prerequisiti
 - Node.js: https://nodejs.org/it/
 - Google Books APIs: https://developers.google.com/books/docs/overview
+   - Una volta ottenuto la chiave, ricordati di attivarlo.
 - Account Firebase: https://console.firebase.google.com.
    - Una volta registrato crea un nuovo progetto.
    - Aggiungi firebase alla tua app Web e aprilo(impostazioni progetto).
    - In fondo alla pagina troverai "Configurazione" con tutti le chiavi.
-   - Infine bisogna abilitare l'autenticazione di email/password che si trova in "Authentication"
+   - Ora bisogna abilitare l'autenticazione di email/password che si trova in "Authentication"
+   - Infine dovrai attivare Google Cloud Firestore Api come hai fatto per Books Api.
    
 ---
 ### :arrow_down: Installazione:
