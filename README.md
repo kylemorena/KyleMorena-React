@@ -25,7 +25,8 @@
 ### :white_check_mark: Prerequisiti
 - Node.js: https://nodejs.org/it/
 - Google Books APIs: https://developers.google.com/books/docs/overview
-   - Una volta ottenuto la chiave, ricordati di attivarlo.
+   - Crea la chiave Api (+ Credenziali) 
+   - Una volta ottenuto la chiave, bisogna abilitare Books API
 - Account Firebase: https://console.firebase.google.com.
    - Una volta registrato crea un nuovo progetto.
    - Aggiungi firebase alla tua app Web e aprilo(impostazioni progetto).
