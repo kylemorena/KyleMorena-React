@@ -29,6 +29,7 @@
    - Una volta ottenuto la chiave, bisogna abilitare Books API
 - Account Firebase: https://console.firebase.google.com.
    - Una volta registrato crea un nuovo progetto.
+   - Crea Authentication e Firestore
    - Aggiungi firebase alla tua app Web e aprilo(impostazioni progetto).
    - In fondo alla pagina troverai "Configurazione" con tutti le chiavi.
    - Ora bisogna abilitare l'autenticazione di email/password che si trova in "Authentication"
