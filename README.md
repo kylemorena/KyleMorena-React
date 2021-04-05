@@ -29,6 +29,7 @@
    - Una volta registrato crea un nuovo progetto.
    - Aggiungi firebase alla tua app Web e aprilo(impostazioni progetto).
    - In fondo alla pagina troverai "Configurazione" con tutti le chiavi.
+   - Infine bisogna abilitare l'autenticazione di email/password che si trova in "Authentication"
    
 ---
 ### :arrow_down: Installazione:
